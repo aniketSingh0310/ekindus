@@ -1,0 +1,50 @@
+import Image from "next/image";
+import React from "react";
+
+const data = [
+  {
+    id: 1,
+    icon: "/icon1.svg",
+    desc: "Invest a minimum of $800,000 in projects within the U.S.",
+  },
+  {
+    id: 2,
+    icon: "/icon2.svg",
+    desc: "Prove that funds are obtained through lawful sources",
+  },
+  {
+    id: 3,
+    icon: "/icon3.svg",
+    desc: "Have no criminal or financial fraud convictions or U.S. immigration law violations",
+  },
+  { id: 4, icon: "/icon4.svg", desc: "Create 10 full-time jobs" },
+];
+const Info = () => {
+  return (
+    <div className="flex flex-col md:w-full w-[90%] mx-auto items-center py-[3rem] space-y-8">
+      <h2 className="text-[2rem] md:text-[2.5rem] font-bold font-[family-name:var(--font-rethink)] text-center">
+        Crucial Requirements for EB-5 visa
+      </h2>
+      <div className="max-w-7xl flex flex-col md:flex-row gap-5 px-5">
+        {data.map((item) => (
+          <div
+            key={item.id}
+            className="flex flex-col gap-4  items-center mx-auto"
+          >
+            <Image
+              width={120}
+              height={120}
+              src={item.icon}
+              alt={`Icon ${item.id}`}
+            />
+            <p className="text-[1.1rem] max-w-lg text-gray-700 text-center font-semibold font-[family-name:var(--font-manrope)]">
+              {item.desc}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Info;
