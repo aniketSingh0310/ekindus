@@ -19,10 +19,10 @@ const Hero = () => {
       <div className="relative z-10 flex flex-col md:flex-row justify-between items-center w-full h-full px-8 lg:px-24">
         {/* Left Section - Text */}
         <div className="text-white">
-          <h1 className="text-[4.2rem] font-bold font-[family-name:var(--font-rethink)] leading-[1.1]">
+          <h1 className="text-[3.5rem] font-bold font-[family-name:var(--font-rethink)] leading-[1.1]">
           The American Dream<br/> Made Simple.
           </h1>
-          <p className="text-[1.2rem]  font-[family-name:var(--font-manrope)]">
+          <p className="text-[1rem]  font-[family-name:var(--font-manrope)]">
           The process of getting an EB-5 visa, made as seamless as possible.
           </p>
         </div>

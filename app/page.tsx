@@ -4,6 +4,7 @@ import Contact from "./components/contact";
 import Hero from "./components/hero";
 import Info from "./components/info";
 import Results from "./components/results";
+import Testimonials from "./components/testimonials";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
     <Benefits/>
     <Results/>
     <Contact/>
+    <Testimonials/>
     </>
   );
 }

@@ -32,7 +32,7 @@ const Results = () => {
                 prefix='$'
                 suffix='M+'
                 duration={4}
-                className="text-[40px] md:text-[3.5rem] font-extrabold text-[#C5922C] font-[family-name:var(--font-rethink)]"
+                className="text-[40px] md:text-[3rem] font-extrabold text-[#C5922C] font-[family-name:var(--font-rethink)]"
               />
              <h4 className='text-base font-[family-name:var(--font-manrope)]'>In Capital Invested</h4>
         </div>
@@ -42,7 +42,7 @@ const Results = () => {
                 end={startCount ? 500 : 0}
                 suffix='+'
                 duration={4}
-                className="text-[40px] md:text-[3.5rem] font-extrabold text-[#C5922C] font-[family-name:var(--font-rethink)]"
+                className="text-[40px] md:text-[3rem] font-extrabold text-[#C5922C] font-[family-name:var(--font-rethink)]"
               />
              <h4 className='text-base font-[family-name:var(--font-manrope)]'>Investor</h4>
         </div>
@@ -51,7 +51,7 @@ const Results = () => {
                 start={0}
                 end={startCount ? 13 : 0}
                 duration={4}
-                className="text-[40px] md:text-[3.5rem] font-extrabold text-[#C5922C] font-[family-name:var(--font-rethink)]"
+                className="text-[40px] md:text-[3rem] font-extrabold text-[#C5922C] font-[family-name:var(--font-rethink)]"
               />
              <h4 className='text-base font-[family-name:var(--font-manrope)]'>Years Managed</h4>
         </div>
@@ -61,7 +61,7 @@ const Results = () => {
                 end={startCount ? 99.9 : 0}
                 duration={4}
                 suffix='%'
-                className="text-[40px] md:text-[3.5rem] font-extrabold text-[#C5922C] font-[family-name:var(--font-rethink)]"
+                className="text-[40px] md:text-[3rem] font-extrabold text-[#C5922C] font-[family-name:var(--font-rethink)]"
               />
              <h4 className='text-base font-[family-name:var(--font-manrope)]'>I-526 Approval Success</h4>
         </div>
@@ -71,7 +71,7 @@ const Results = () => {
                 end={startCount ? 100 : 0}
                 duration={4}
                 suffix='%'
-                className="text-[40px] md:text-[3.5rem] font-extrabold text-[#C5922C] font-[family-name:var(--font-rethink)]"
+                className="text-[40px] md:text-[3rem] font-extrabold text-[#C5922C] font-[family-name:var(--font-rethink)]"
               />
              <h4 className='text-base font-[family-name:var(--font-manrope)]'>I-829 Approval Success</h4>
         </div>
@@ -81,7 +81,7 @@ const Results = () => {
                 end={startCount ? 100 : 0}
                 duration={4}
                 suffix='%'
-                className="text-[40px] md:text-[3.5rem] font-extrabold text-[#C5922C] font-[family-name:var(--font-rethink)]"
+                className="text-[40px] md:text-[3rem] font-extrabold text-[#C5922C] font-[family-name:var(--font-rethink)]"
               />
              <h4 className='text-base font-[family-name:var(--font-manrope)]'>Return of Capital Success</h4>
         </div>

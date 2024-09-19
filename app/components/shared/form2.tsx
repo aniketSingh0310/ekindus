@@ -15,7 +15,7 @@ import React from "react";
 import countries from "@/data/countries";
 const Form2 = () => {
   return (
-    <div className="p-[4rem] bg-white shadow-xl shadow-black/50 rounded-md">
+    <div className="p-5 md:p-[3rem] bg-white">
       <form className="space-y-4">
         <div className="flex flex-row gap-4">
           {/* Full Name */}
