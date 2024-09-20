@@ -29,19 +29,21 @@ const Benefits = () => {
   return (
     <div className='w-full flex flex-col md:flex-col bg-[#FFFDF8] py-10 space-y-14'>
       <Title title='Benefits of a Green Card' />
-      <div className='w-[80%] md:max-w-[1400px] mx-auto grid md:grid-cols-4 grid-cols-1 gap-[2rem] md:px-5'>
+      <div className='w-[85%] md:max-w-[1300px] mx-auto grid md:grid-cols-4 grid-cols-1 gap-[2.5rem] md:px-5'>
         {data.map((benefit) => (
-          <div key={benefit.id} className='flex flex-col items-center shadow-md bg-white'>
-            <div className="w-full h-[270px]">
+          <div key={benefit.id} className='flex flex-col shadow-md bg-white'>
+            <div className="w-full">
               <Image 
                 src={benefit.image} 
                 alt={benefit.title} 
-                width={260} 
-                height={260} 
+                width={400} 
+                height={300} 
                 className='object-cover w-full h-full'
+                layout="responsive"
+                quality={100} // Ensures the image quality is high
               />
             </div>
-            <p className='text-center px-2 py-4 font-[family-name:var(--font-manrope)] text-sm tracking-tight'>
+            <p className='text-center px-2 py-2 font-[family-name:var(--font-manrope)] text-[13.5px]  tracking-tight'>
               {benefit.title}
             </p>
           </div>

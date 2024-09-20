@@ -2,13 +2,17 @@ import React from "react";
 
 const About = () => {
   return (
-    <div  id="q1" className="w-full bg-[url('/liberty.png')] bg-cover bg-center flex justify-center py-[6rem]">
-      <div className="lg:max-w-5xl xl:max-w-7xl flex flex-col md:flex-row justify-between text-white gap-[5rem] md:gap-[15rem] md:px-0 px-10">
-        <div id="sec1" className="md:px-10">
-          <h3 className="text-[2.5rem] font-bold font-[family-name:var(--font-rethink)]">
+    <div
+      id="q1"
+      className="w-full bg-[url('/liberty.png')] bg-cover bg-center flex justify-center py-[4rem] md:py-[5rem] lg:py-[6rem]"
+    >
+      <div className="lg:max-w-[90vw] xl:max-w-[85vw] w-full flex flex-col md:flex-row justify-between text-white gap-[3rem] md:gap-[5rem] lg:gap-[10rem] xl:gap-[15rem] px-6 md:px-10 lg:px-0">
+        {/* Section 1 */}
+        <div id="sec1" className="md:w-1/2">
+          <h3 className="text-[2rem] md:text-[2.3rem] lg:text-[2.5rem] font-bold font-[family-name:var(--font-rethink)]">
             What is an EB-5 visa?
           </h3>
-          <p className="text-[1rem] text-justify font-normal font-[family-name:var(--font-manrope)] max-w-3xl tracking-tight">
+          <p className="text-[1rem] lg:text-[1rem] text-justify font-normal font-[family-name:var(--font-manrope)] tracking-tight mt-4 leading-snug">
             The EB-5 Immigrant Investor Program allows a non-US investor
             applicant and their immediate family members to gain permanent
             residency status and receive a green card. Through the EB-5 program,
@@ -19,11 +23,12 @@ const About = () => {
             Targeted Employment Area (“TEA”).
           </p>
         </div>
-        <div id="sec2" className="md:px-10">
-          <h3 className="text-[2.5rem] font-bold font-[family-name:var(--font-rethink)]">
+        {/* Section 2 */}
+        <div id="sec2" className="md:w-1/2">
+          <h3 className="text-[2rem] md:text-[2.3rem] lg:text-[2.5rem] font-bold font-[family-name:var(--font-rethink)]">
             Why Ek.indUS?
           </h3>
-          <p className="text-[1rem] tracking-tight text-justify font-normal font-[family-name:var(--font-manrope)] max-w-3xl">
+          <p className="text-[1rem] lg:text-[1rem] leading-snug tracking-tight text-justify font-normal font-[family-name:var(--font-manrope)] mt-4">
             The Ek.indUS team leverages the expertise of industry veterans with
             more than a decade of success in the immigration investment space.
             *Through our strategic association with a leading US-based EB-5
@@ -31,7 +36,7 @@ const About = () => {
             hands. Our team, well-versed in regulatory aspects, will guide you
             through the entire process’ complexities.
           </p>
-          <p className="mt-5 text-[1rem] tracking-tight text-justify font-normal font-[family-name:var(--font-manrope)] max-w-3xl">
+          <p className="mt-5 text-[1rem] lg:text-[1rem] leading-snug tracking-tight text-justify font-normal font-[family-name:var(--font-manrope)]">
             Expertise is not our only differentiating factor. In a space filled
             with “experts” looking to earn a commission from pitching unrelated
             investment projects, Ek.indUS will be your reliable partner. Our
