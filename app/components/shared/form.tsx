@@ -31,34 +31,37 @@ const Form = () => {
     resolver: zodResolver(formSchema),
   });
 
-  const onSubmit = async (data: FormData) => {
-    try {
-      setLoading(true);
-      console.log("Submitted Form Data:", data);
+  // const onSubmit = async (data: FormData) => {
+  //   try {
+  //     setLoading(true);
+  //     console.log("Submitted Form Data:", data);
   
-      // Check for undefined values
-      if (!data.fullName || !data.email || !data.phone || !data.country || !data.description) {
-        throw new Error("All fields are required");
-      }
+  //     // Check for undefined values
+  //     if (!data.fullName || !data.email || !data.phone || !data.country || !data.description) {
+  //       throw new Error("All fields are required");
+  //     }
   
-      const docRef = await addDoc(collection(db, "leads"), {
-        fullName: data.fullName,
-        email: data.email,
-        phone: data.phone,
-        country: data.country,
-        description: data.description,
-        timestamp: new Date(),
-      });
+  //     const docRef = await addDoc(collection(db, "leads"), {
+  //       fullName: data.fullName,
+  //       email: data.email,
+  //       phone: data.phone,
+  //       country: data.country,
+  //       description: data.description,
+  //       timestamp: new Date(),
+  //     });
   
-      console.log("Document written with ID: ", docRef.id);
-      setLoading(false);
-      setSuccess(true);
-    } catch (error) {
-      console.error("Error adding document: ", error);
-      setLoading(false);
-    }
-  };
+  //     console.log("Document written with ID: ", docRef.id);
+  //     setLoading(false);
+  //     setSuccess(true);
+  //   } catch (error) {
+  //     console.error("Error adding document: ", error);
+  //     setLoading(false);
+  //   }
+  // };
   
+  const onSubmit=()=>{
+
+  }
   
 
   return (
