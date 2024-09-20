@@ -34,7 +34,7 @@ const Results = () => {
                 duration={4}
                 className="text-[40px] md:text-[3rem] font-extrabold text-[#C5922C] font-[family-name:var(--font-rethink)]"
               />
-             <h4 className='text-base font-[family-name:var(--font-manrope)]'>In Capital Invested</h4>
+             <h4 className='text-sm font-[family-name:var(--font-manrope)]'>In Capital Invested</h4>
         </div>
         <div className='flex flex-col gap-1 justify-center items-center'>
         <CountUp
@@ -44,7 +44,7 @@ const Results = () => {
                 duration={4}
                 className="text-[40px] md:text-[3rem] font-extrabold text-[#C5922C] font-[family-name:var(--font-rethink)]"
               />
-             <h4 className='text-base font-[family-name:var(--font-manrope)]'>Investor</h4>
+             <h4 className='text-sm font-[family-name:var(--font-manrope)]'>Investor Applicants</h4>
         </div>
         <div className='flex flex-col gap-1 justify-center items-center'>
         <CountUp
@@ -53,27 +53,17 @@ const Results = () => {
                 duration={4}
                 className="text-[40px] md:text-[3rem] font-extrabold text-[#C5922C] font-[family-name:var(--font-rethink)]"
               />
-             <h4 className='text-base font-[family-name:var(--font-manrope)]'>Years Managed</h4>
+             <h4 className='text-sm font-[family-name:var(--font-manrope)]'>Years Managed</h4>
         </div>
         <div className='flex flex-col gap-1 justify-center items-center'>
         <CountUp
                 start={0}
-                end={startCount ? 99.9 : 0}
+                end={startCount ? 99 : 0}
                 duration={4}
-                suffix='%'
+                suffix='.9%'
                 className="text-[40px] md:text-[3rem] font-extrabold text-[#C5922C] font-[family-name:var(--font-rethink)]"
               />
-             <h4 className='text-base font-[family-name:var(--font-manrope)]'>I-526 Approval Success</h4>
-        </div>
-        <div className='flex flex-col gap-1 justify-center items-center'>
-        <CountUp
-                start={0}
-                end={startCount ? 100 : 0}
-                duration={4}
-                suffix='%'
-                className="text-[40px] md:text-[3rem] font-extrabold text-[#C5922C] font-[family-name:var(--font-rethink)]"
-              />
-             <h4 className='text-base font-[family-name:var(--font-manrope)]'>I-829 Approval Success</h4>
+             <h4 className='text-sm font-[family-name:var(--font-manrope)]'>I-526 Approval Success</h4>
         </div>
         <div className='flex flex-col gap-1 justify-center items-center'>
         <CountUp
@@ -83,7 +73,17 @@ const Results = () => {
                 suffix='%'
                 className="text-[40px] md:text-[3rem] font-extrabold text-[#C5922C] font-[family-name:var(--font-rethink)]"
               />
-             <h4 className='text-base font-[family-name:var(--font-manrope)]'>Return of Capital Success</h4>
+             <h4 className='text-sm font-[family-name:var(--font-manrope)]'>I-829 Approval Success</h4>
+        </div>
+        <div className='flex flex-col gap-1 justify-center items-center'>
+        <CountUp
+                start={0}
+                end={startCount ? 100 : 0}
+                duration={4}
+                suffix='%'
+                className="text-[40px] md:text-[3rem] font-extrabold text-[#C5922C] font-[family-name:var(--font-rethink)]"
+              />
+             <h4 className='text-sm font-[family-name:var(--font-manrope)]'>Return of Capital Success</h4>
         </div>
     </motion.div>
 

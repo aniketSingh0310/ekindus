@@ -63,19 +63,19 @@ const Testimonials = () => {
         </div>
       </div>
       <div className="w-full font-[family-name:var(--font-manrope) text-xs p-5 text-justify tracking-tight">
-        * ©ekindus.com This webpage or any document found here is not an offer
-        or solicitation to sell or acquire securities or any other financial
-        products and is not a prospectus, disclosure statement or other offering
-        document. For illustrative purposes for use in this electronic media,
-        descriptions, processes or details are simplified.. Any offering of
-        securities will only be by means of a confidential private offering
-        memorandum, and conducted in accordance with applicable law. These
-        securities have not been registered under the Securities Act of 1933 and
-        may not be offered or sold in the United States or to U.S. persons
-        unless the securities are registered under the Act, or an exemption from
-        the registration requirements of the Act is available. Hedging
-        transactions involving the securities may not be conducted unless in
-        compliance with the Act.
+        Disclaimer: ©ekindus.com This webpage or any document found here is not
+        an offer or solicitation to sell or acquire securities or any other
+        financial products and is not a prospectus, disclosure statement or
+        other offering document. For illustrative purposes for use in this
+        electronic media, descriptions, processes or details are simplified..
+        Any offering of securities will only be by means of a confidential
+        private offering memorandum, and conducted in accordance with applicable
+        law. These securities have not been registered under the Securities Act
+        of 1933 and may not be offered or sold in the United States or to U.S.
+        persons unless the securities are registered under the Act, or an
+        exemption from the registration requirements of the Act is available.
+        Hedging transactions involving the securities may not be conducted
+        unless in compliance with the Act.
       </div>
     </>
   );

@@ -17,15 +17,15 @@ const data = [
     icon: "/icon3.svg",
     desc: "Have no criminal or financial fraud convictions or U.S. immigration law violations",
   },
-  { id: 4, icon: "/icon4.svg", desc: "Create 10 full-time jobs" },
+ 
 ];
 const Info = () => {
   return (
-    <div className="flex flex-col md:w-full w-[90%] mx-auto items-center py-[3rem] space-y-8">
+    <div className="flex flex-col md:w-full w-[90%] mx-auto items-center py-[3.5rem] space-y-8">
       <h2 className="text-[2rem] md:text-[2.5rem] font-bold font-[family-name:var(--font-rethink)] text-center">
         Crucial Requirements for EB-5 visa
       </h2>
-      <div className="max-w-7xl flex flex-col md:flex-row gap-5 px-5">
+      <div className="max-w-5xl flex flex-col md:flex-row gap-[2.5rem] px-5">
         {data.map((item) => (
           <div
             key={item.id}
@@ -37,7 +37,7 @@ const Info = () => {
               src={item.icon}
               alt={`Icon ${item.id}`}
             />
-            <p className="text-[1.1rem] max-w-lg text-gray-700 text-center font-semibold font-[family-name:var(--font-manrope)]">
+            <p className="text-[1rem] max-w-lg text-gray-700 text-justify font-semibold font-[family-name:var(--font-manrope)]">
               {item.desc}
             </p>
           </div>

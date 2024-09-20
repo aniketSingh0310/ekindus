@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
-import { RiInstagramLine, RiTwitterXFill, RiWhatsappLine } from 'react-icons/ri'
+import { RiInstagramLine, RiLinkedinBoxFill, RiWhatsappLine } from 'react-icons/ri'
 
 const Footer = () => {
   return (
@@ -16,7 +16,7 @@ const Footer = () => {
        </div>
      </div>
      <div className='w-full flex justify-center items-center text-white gap-3 py-4 md:py-0'>
-     <RiTwitterXFill size={18} className='hover:scale-105 transition-all duration-200 ease-in md:size-[25px]'/>
+     <RiLinkedinBoxFill size={18} className='hover:scale-105 transition-all duration-200 ease-in md:size-[25px]'/>
      <RiInstagramLine size={18} className='hover:scale-105 transition-all duration-200 ease-in md:size-[25px]'/>
      <RiWhatsappLine size={18} className='hover:scale-105 transition-all duration-200 ease-in md:size-[25px]'/>
  </div>

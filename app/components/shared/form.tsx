@@ -29,7 +29,7 @@ const Form = () => {
             type="text"
             id="full-name"
             name="full-name"
-            className="mt-1 block w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 bg-white"
+            className="mt-1 block w-full px-3 py-1 border border-[#F9F8F8] rounded-md shadow-sm focus:outline-none focus:ring-[#3B6F80] bg-[#F9F8F8] md:bg-white"
             placeholder="Enter your full name"
           />
         </div>
@@ -46,7 +46,7 @@ const Form = () => {
             type="email"
             id="email"
             name="email"
-            className="mt-1 block w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 bg-white"
+            className="mt-1 block w-full px-3 py-1 border border-[#F9F8F8] rounded-md shadow-sm focus:outline-none focus:ring-[#3B6F80] focus:border-[#3B6F80] bg-[#F9F8F8] md:bg-white"
             placeholder="Enter your email"
           />
         </div>
@@ -60,7 +60,7 @@ const Form = () => {
             Phone Number
           </Label>
           <div className="flex items-center">
-            <span className="inline-flex items-center px-3 py-1 border border-r-0 border-gray-300 rounded-l-md bg-gray-50 text-gray-500 text-sm">
+            <span className="inline-flex items-center px-3 py-1 border border-r-0 border-[#F9F8F8] rounded-l-md bg-gray-50 text-gray-500 text-sm">
               <Image
                 width={14}
                 height={14}
@@ -74,7 +74,7 @@ const Form = () => {
               type="tel"
               id="phone"
               name="phone"
-              className="mt-1 block w-full px-3 py-1 border border-gray-300 rounded-r-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 bg-white"
+              className="mt-1 block w-full px-3 py-1 border border-[#F9F8F8] rounded-r-md shadow-sm focus:outline-none focus:ring-[#3B6F80] focus:border-[#3B6F80] bg-[#F9F8F8] md:bg-white"
               placeholder="Enter your phone number"
             />
           </div>
@@ -88,7 +88,7 @@ const Form = () => {
               Country of Residence
             </Label>
             <Select>
-              <SelectTrigger className="w-full bg-white">
+              <SelectTrigger className="w-full bg-[#F9F8F8] md:bg-white mt-1">
                 <SelectValue placeholder="Choose a country" />
               </SelectTrigger>
               <SelectContent>
@@ -108,7 +108,7 @@ const Form = () => {
         {/* Description */}
         <div>
           <Label
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-medium text-gray-800"
             htmlFor="description"
           >
             Please describe your motivation to obtain residency in the US:
@@ -117,7 +117,7 @@ const Form = () => {
             id="description"
             name="description"
             rows={4}
-            className="mt-1 block w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 bg-white h-10"
+            className="mt-1 block w-full px-3 py-1 border border-[#F9F8F8] rounded-md shadow-sm focus:outline-none focus:ring-[#3B6F80] focus:border-[#3B6F80] bg-[#F9F8F8] md:bg-white h-10"
             placeholder="Enter your message"
           />
         </div>

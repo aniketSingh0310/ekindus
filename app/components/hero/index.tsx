@@ -3,7 +3,7 @@ import Form from "../shared/form";
 
 const Hero = () => {
   return (
-    <div className="relative w-full h-max md:h-[80vh] overflow-hidden">
+    <div className="relative w-full h-max md:h-[80vh] overflow-hidden hidden md:block">
       {/* Background Video */}
       <video
         className="absolute top-0 left-0 w-full h-full object-cover"

@@ -4,7 +4,7 @@ import Form2 from '../shared/form2'
 const Contact = () => {
   return (
     <div className='w-full '>
-   <p className='text-xs text-black'>*in partnership with IMMCO investments </p>
+   <p className='text-xs text-black'>*partnership with IMMCO investments </p>
    <div className='w-full flex flex-col md:flex-row'>
    <div id='sec1' className='md:w-[40vw] bg-[url("/contactbg.png")] object-contain bg-center bg-cover py-[6rem] px-[4rem]'>
      <div className='flex flex-col gap-4 text-white'>

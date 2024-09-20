@@ -30,7 +30,7 @@ const Form2 = () => {
               type="text"
               id="full-name"
               name="full-name"
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+              className="mt-1 block w-full px-3 py-2 border border-[#3B6F80] rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
               placeholder="Enter your full name"
             />
           </div>
@@ -47,7 +47,7 @@ const Form2 = () => {
               type="email"
               id="email"
               name="email"
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+              className="mt-1 block w-full px-3 py-2 border border-[#3B6F80] rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
               placeholder="Enter your email"
             />
           </div>
@@ -63,7 +63,7 @@ const Form2 = () => {
               Phone Number
             </Label>
             <div className="flex items-center">
-              <span className="inline-flex items-center px-3 py-2 border border-r-0 border-gray-300 rounded-l-md bg-gray-50 text-gray-500 text-sm">
+              <span className="inline-flex items-center px-3 py-2 border border-r-0 border-[#3B6F80] rounded-l-md bg-gray-50 text-gray-500 text-sm">
                 <Image
                   width={14}
                   height={14}
@@ -77,7 +77,7 @@ const Form2 = () => {
                 type="tel"
                 id="phone"
                 name="phone"
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-r-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                className="mt-1 block w-full px-3 py-2 border border-[#3B6F80] rounded-r-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
                 placeholder="Enter your phone number"
               />
             </div>
@@ -92,7 +92,7 @@ const Form2 = () => {
               Country of Residence
             </Label>
             <Select>
-      <SelectTrigger className="w-full">
+      <SelectTrigger className="w-full border-[#3B6F80]">
         <SelectValue placeholder="Choose a country" />
       </SelectTrigger>
       <SelectContent>
@@ -121,7 +121,7 @@ const Form2 = () => {
             id="description"
             name="description"
             rows={4}
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 h-10"
+            className="mt-1 block w-full px-3 py-2 border border-[#3B6F80] rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 h-10"
             placeholder="Enter your message"
           />
         </div>
