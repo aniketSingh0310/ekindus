@@ -39,7 +39,6 @@ const Benefits = () => {
                 width={400} 
                 height={300} 
                 className='object-cover w-full h-full'
-                layout="responsive"
                 quality={100} // Ensures the image quality is high
               />
             </div>
