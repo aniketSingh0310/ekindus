@@ -3,6 +3,7 @@ import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
 import { RiWhatsappLine } from 'react-icons/ri';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 const Navbar = () => {
   // Scroll behavior state
@@ -45,9 +46,12 @@ const Navbar = () => {
             className="md:w-[150px] md:h-[45px]"
           />
           <div className="flex items-center gap-3">
+            <Link href={"#contact"}>
             <button className="text-[#C5922C] px-5 py-2 border border-[#C5922C] rounded-md font-[family-name:var(--font-manrope)] text-sm md:text-[0.9rem]">
               Get in Touch
             </button>
+            </Link>
+            
             <RiWhatsappLine className="text-[#C5922C] text-[40px]" />
           </div>
         </div>

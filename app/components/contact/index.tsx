@@ -3,7 +3,7 @@ import Form2 from '../shared/form2'
 
 const Contact = () => {
   return (
-    <div className='w-full '>
+    <div id='contact' className='w-full '>
    <p className='text-xs text-black ml-5 mb-3'>*partnership with IMMCO investments </p>
    <div className='w-full flex flex-col md:flex-row'>
    <div id='sec1' className='md:w-[40vw] bg-[url("/contactbg.png")] object-contain bg-center bg-cover py-[6rem] px-[4rem]'>

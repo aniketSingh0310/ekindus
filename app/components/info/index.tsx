@@ -23,7 +23,7 @@ const Info = () => {
   return (
     <div className="flex flex-col md:w-full w-[90%] mx-auto items-center py-[3.5rem] space-y-8">
       <h2 className="text-[2rem] md:text-[2.5rem] font-bold font-[family-name:var(--font-rethink)] text-center">
-        Qualification Critria for EB-5 visa
+        Qualification Critiria for EB-5 visa
       </h2>
       <div className="w-full flex flex-col md:flex-row gap-[1rem] px-5 md:px-20">
         {data.map((item) => (
