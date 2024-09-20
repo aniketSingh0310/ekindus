@@ -6,22 +6,22 @@ const data = [
   {
     id: 1,
     title: 'Freedom to live anywhere in the U.S. and travel anywhere in the world',
-    image: '/benefits/bldg.png'
+    image: '/benefits/bldg.jpg'
   },
   {
     id: 2,
     title: 'Ability to attend U.S. schools at the same cost as citizens',
-    image: '/benefits/flag.png'
+    image: '/benefits/flag.jpg'
   },
   {
     id: 3,
     title: 'Liberty to apply for scholarships and prestigious internships',
-    image: '/benefits/edu.png'
+    image: '/benefits/education.jpg'
   },
   {
     id: 4,
     title: 'Right to get a job of your choice or to start your own business',
-    image: '/benefits/man.png'
+    image: '/benefits/men.jpg'
   }
 ];
 

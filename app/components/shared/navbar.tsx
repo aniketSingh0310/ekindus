@@ -1,21 +1,59 @@
-import Image from 'next/image'
-import React from 'react'
-import { RiWhatsappLine } from 'react-icons/ri'
+"use client"
+import Image from 'next/image';
+import React, { useState, useEffect } from 'react';
+import { RiWhatsappLine } from 'react-icons/ri';
+import { motion } from 'framer-motion';
 
 const Navbar = () => {
+  // Scroll behavior state
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [visible, setVisible] = useState(true);
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  const handleScroll = () => {
+    const currentScrollPos = window.scrollY;
+    setScrollPosition(currentScrollPos);
+
+    const isScrolledDown = prevScrollPos < currentScrollPos;
+    setPrevScrollPos(currentScrollPos);
+    setVisible(!isScrolledDown || currentScrollPos < 5); 
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [prevScrollPos]);
+
   return (
-    <div className='w-full flex justify-between items-center px-5 md:px-[3.5rem] py-5'>
-    <Image src={"/ekindusLogo.svg"} width={120} height={50} alt='Ek.indUS Logo' className='md:w-[190px] md:h-[50px]'/>
-    <div className='flex items-center gap-3'>
-    <button className='text-[#C5922C]  px-5 py-2 border border-[#C5922C] rounded-md font-[family-name:var(--font-manrope)] text-sm md:text-[1rem] '>
-        Get in Touch
-    </button>
-    <RiWhatsappLine className='size-[40px] text-[#C5922C] '/>
-    </div>
-    
+    <>
+      {/* Navbar */}
+      <motion.nav
+        className={`fixed top-0 w-full transition-all duration-300 z-[100] ${
+          scrollPosition > 0 ? 'bg-white' : 'bg-white'
+        } ease-in duration-150`}
+        initial={{ y: -100 }}
+        animate={{ y: visible ? 0 : -100 }}
+      >
+        <div className="w-full flex justify-between items-center px-5 md:px-[3.5rem] py-5">
+          <Image
+            src={'/ekindusLogo.svg'}
+            width={120}
+            height={50}
+            alt="Ek.indUS Logo"
+            className="md:w-[150px] md:h-[45px]"
+          />
+          <div className="flex items-center gap-3">
+            <button className="text-[#C5922C] px-5 py-2 border border-[#C5922C] rounded-md font-[family-name:var(--font-manrope)] text-sm md:text-[0.9rem]">
+              Get in Touch
+            </button>
+            <RiWhatsappLine className="text-[#C5922C] text-[40px]" />
+          </div>
+        </div>
+      </motion.nav>
+    </>
+  );
+};
 
-</div>
-  )
-}
-
-export default Navbar
+export default Navbar;

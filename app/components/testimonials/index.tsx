@@ -25,9 +25,9 @@ const Testimonials = () => {
             />
             <div className="flex flex-col">
               <p className="text-justify p-5 text-base font-[family-name:var(--font-rethink)] tracking-[-0.020em]">
-                We are very happy that we completed the eb5 process
-                successfully. It was easy to work with you, and we would
-                recommend anyone to choose your next eb5 project!
+                We are very happy that we completed the EB-5 process
+                successfully. It was easy to work with you and we will recommend
+                others to choose your next EB-5 project!
               </p>
               <p className="text-center text-[#3B6F80] text-lg font-semibold font-[family-name:var(--font-manrope)">
                 Bo Sun
@@ -51,9 +51,8 @@ const Testimonials = () => {
             />
             <div className="flex flex-col">
               <p className="text-justify p-5 text-base font-[family-name:var(--font-rethink)] tracking-[-0.020em]">
-                I invested and got my green card. Then I recommend my friend to
-                your next project, and they got their green card too! We are
-                lucky to have successful experience.
+                I invested and got my Green Card. Then I recommended my friend
+                to choose your next project and they got their Green Card too!
               </p>
               <p className="text-center text-[#3B6F80] text-lg font-semibold font-[family-name:var(--font-manrope)">
                 Zhang Yi

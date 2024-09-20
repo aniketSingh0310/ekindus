@@ -1,6 +1,7 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
-import { RiInstagramLine, RiLinkedinBoxFill, RiWhatsappLine } from 'react-icons/ri'
+import { RiInstagramLine, RiLinkedinBoxFill, RiYoutubeFill } from 'react-icons/ri'
 
 const Footer = () => {
   return (
@@ -16,12 +17,13 @@ const Footer = () => {
        </div>
      </div>
      <div className='w-full flex justify-center items-center text-white gap-3 py-4 md:py-0'>
-     <RiLinkedinBoxFill size={18} className='hover:scale-105 transition-all duration-200 ease-in md:size-[25px]'/>
-     <RiInstagramLine size={18} className='hover:scale-105 transition-all duration-200 ease-in md:size-[25px]'/>
-     <RiWhatsappLine size={18} className='hover:scale-105 transition-all duration-200 ease-in md:size-[25px]'/>
+     <Link href={"https://www.linkedin.com/company/ek-indus/"} target="_blank" rel="noopener noreferrer"><RiLinkedinBoxFill size={18} className='hover:scale-105 transition-all duration-200 ease-in md:size-[25px]'/></Link>
+     <Link href={"https://www.instagram.com/ek.indus/"} target="_blank" rel="noopener noreferrer"><RiInstagramLine size={18} className='hover:scale-105 transition-all duration-200 ease-in md:size-[25px]'/></Link>
+     <Link href={"https://www.youtube.com/channel/UCnEm9lvWPkbHOFw6gMrRy3A"} target="_blank" rel="noopener noreferrer"><RiYoutubeFill size={18} className='hover:scale-105 transition-all duration-200 ease-in md:size-[25px]'/></Link>
+     
  </div>
  <div className='w-full h-[1px] bg-white/30 my-4'></div>
- <div className='w-full flex justify-center items-center text-white/80 font-[family-name:var(--font-manrope)] text-base mt-2 text-center'>© 2024 Ek.IndUS. All Rights Reserved.</div>
+ <div className='w-full flex justify-center items-center text-white/80 font-[family-name:var(--font-manrope)] text-sm mt-2 text-center'>© 2024 Ek.IndUS. All Rights Reserved.</div>
     </div>
   )
 }

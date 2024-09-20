@@ -3,11 +3,11 @@ import Form from "../shared/form";
 
 const Hero = () => {
   return (
-    <div className="relative w-full h-max md:h-[80vh] overflow-hidden hidden md:block">
+    <div className="relative w-full h-max md:h-[80vh] overflow-hidden hidden md:block mt-[5.2rem]">
       {/* Background Video */}
       <video
         className="absolute top-0 left-0 w-full h-full object-cover"
-        src="https://videos.pexels.com/video-files/6606216/6606216-uhd_2732_1440_24fps.mp4" // Path to your video file in the public folder
+        src="/heroVideo.mp4"
         autoPlay
         loop
         muted

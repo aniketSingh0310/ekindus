@@ -4,7 +4,7 @@ import Form from '../shared/form';
 const MobHero = () => {
   return (
     <>
-    <div className="block md:hidden w-full relative">
+    <div className="block md:hidden w-full relative mt-[5rem]">
       {/* Background Image */}
       <div className="absolute inset-0 bg-center bg-cover bg-no-repeat bg-[url('/heroBg.png')]">
         {/* <div className="absolute inset-0 bg-black opacity-50"></div>  */}

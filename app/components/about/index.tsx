@@ -2,7 +2,7 @@ import React from "react";
 
 const About = () => {
   return (
-    <div className="w-full bg-[url('/liberty.png')] bg-cover bg-center flex justify-center py-[3rem]">
+    <div className="w-full bg-[url('/liberty.png')] bg-cover bg-center flex justify-center py-[5rem]">
       <div className="lg:max-w-5xl xl:max-w-7xl flex flex-col md:flex-row justify-between text-white gap-[5rem] md:gap-[15rem] md:px-0 px-10">
         <div id="sec1" className="md:px-10">
           <h3 className="text-[2.5rem] font-bold font-[family-name:var(--font-rethink)]">

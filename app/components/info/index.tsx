@@ -5,12 +5,12 @@ const data = [
   {
     id: 1,
     icon: "/icon1.svg",
-    desc: "Invest a minimum of $800,000 in projects within the U.S.",
+    desc: "Invest a minimum of $800,000 in a commercial project within the U.S.",
   },
   {
     id: 2,
     icon: "/icon2.svg",
-    desc: "Prove that funds are obtained through lawful sources",
+    desc: "Prove that funds are lawfully sourced ",
   },
   {
     id: 3,
@@ -37,7 +37,7 @@ const Info = () => {
               src={item.icon}
               alt={`Icon ${item.id}`}
             />
-            <p className="text-[1rem] max-w-lg text-gray-700 text-justify font-semibold font-[family-name:var(--font-manrope)]">
+            <p className="tracking-[-0.015] text-[0.9rem]  max-w-[280px] text-gray-700 text-justify font-semibold font-[family-name:var(--font-manrope)]">
               {item.desc}
             </p>
           </div>
