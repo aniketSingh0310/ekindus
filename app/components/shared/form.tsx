@@ -3,8 +3,6 @@ import { useState } from "react";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { collection, addDoc } from "firebase/firestore";
-import { db } from "@/lib/firebase"
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -60,7 +58,8 @@ const Form = () => {
   // };
   
   const onSubmit=()=>{
-
+setLoading(true)
+setSuccess(true)
   }
   
 
@@ -79,7 +78,7 @@ const Form = () => {
               type="text"
               id="full-name"
               {...register("fullName")}
-              className={`mt-1 block w-full px-3 py-1 border ${errors.fullName ? 'border-red-500' : 'border-[#F9F8F8]'} rounded-md shadow-sm`}
+              className={`mt-1 block w-full px-3 py-1 border ${errors.fullName ? 'border-red-500' : 'border-[#F9F8F8]'} rounded-md shadow-sm bg-white`}
               placeholder="Enter your full name"
             />
             {errors.fullName && <p className="text-red-500 text-sm">{errors.fullName.message}</p>}
@@ -94,7 +93,7 @@ const Form = () => {
               type="email"
               id="email"
               {...register("email")}
-              className={`mt-1 block w-full px-3 py-1 border ${errors.email ? 'border-red-500' : 'border-[#F9F8F8]'} rounded-md shadow-sm`}
+              className={`mt-1 block w-full px-3 py-1 border ${errors.email ? 'border-red-500' : 'border-[#F9F8F8]'} rounded-md shadow-sm bg-white`}
               placeholder="Enter your email"
             />
             {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
@@ -109,7 +108,7 @@ const Form = () => {
               type="tel"
               id="phone"
               {...register("phone")}
-              className={`mt-1 block w-full px-3 py-1 border ${errors.phone ? 'border-red-500' : 'border-[#F9F8F8]'} rounded-md shadow-sm`}
+              className={`mt-1 block w-full px-3 py-1 border ${errors.phone ? 'border-red-500' : 'border-[#F9F8F8]'} rounded-md shadow-sm bg-white`}
               placeholder="Enter your phone number"
             />
             {errors.phone && <p className="text-red-500 text-sm">{errors.phone.message}</p>}
@@ -147,7 +146,7 @@ const Form = () => {
               id="description"
               {...register("description")}
               rows={4}
-              className={`mt-1 block w-full px-3 py-1 border ${errors.description ? 'border-red-500' : 'border-[#F9F8F8]'} rounded-md shadow-sm`}
+              className={`mt-1 block w-full h-10 px-3 py-1 border ${errors.description ? 'border-red-500' : 'border-[#F9F8F8]'} rounded-md shadow-sm bg-white`}
               placeholder="Enter your message"
             />
             {errors.description && <p className="text-red-500 text-sm">{errors.description.message}</p>}
