@@ -15,7 +15,7 @@ const Results = () => {
   };
 
   return (
-   <div className='w-full flex flex-col justify-center items-center py-[3.5rem] space-y-5'>
+   <div id='q2' className='w-full flex flex-col justify-center items-center py-[3.5rem] space-y-5'>
     <h2 className="text-[2rem] md:text-[2.5rem] font-bold font-[family-name:var(--font-rethink)] text-center">The Results Speak for Themselves</h2>
     <motion.div
          initial={{ opacity: 0 }}

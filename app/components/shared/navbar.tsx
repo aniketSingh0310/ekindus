@@ -31,13 +31,14 @@ const Navbar = () => {
     <>
       {/* Navbar */}
       <motion.nav
-        className={`fixed top-0 w-full transition-all duration-300 z-[100] ${
+        className={`fixed top-0 w-full transition-all duration-300  ${
           scrollPosition > 0 ? 'bg-white' : 'bg-white'
         } ease-in duration-150`}
         initial={{ y: -100 }}
         animate={{ y: visible ? 0 : -100 }}
       >
         <div className="w-full flex justify-between items-center px-5 md:px-[3.5rem] py-5">
+          <Link href={"/"}>
           <Image
             src={'/ekindusLogo.svg'}
             width={120}
@@ -45,9 +46,11 @@ const Navbar = () => {
             alt="Ek.indUS Logo"
             className="md:w-[150px] md:h-[45px]"
           />
+          </Link>
+          
           <div className="flex items-center gap-3">
             <Link href={"#contact"}>
-            <button className="text-[#C5922C] px-5 py-2 border border-[#C5922C] rounded-md font-[family-name:var(--font-manrope)] text-sm md:text-[0.9rem]">
+            <button className="text-[#C5922C] px-10 py-2 border border-[#C5922C] rounded-md font-[family-name:var(--font-manrope)] text-sm md:text-[0.9rem]">
               Get in Touch
             </button>
             </Link>
