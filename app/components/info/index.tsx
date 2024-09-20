@@ -23,9 +23,9 @@ const Info = () => {
   return (
     <div className="flex flex-col md:w-full w-[90%] mx-auto items-center py-[3.5rem] space-y-8">
       <h2 className="text-[2rem] md:text-[2.5rem] font-bold font-[family-name:var(--font-rethink)] text-center">
-        Crucial Requirements for EB-5 visa
+        Qualification Critria for EB-5 visa
       </h2>
-      <div className="max-w-5xl flex flex-col md:flex-row gap-[2.5rem] px-5">
+      <div className="w-full flex flex-col md:flex-row gap-[1rem] px-5 md:px-20">
         {data.map((item) => (
           <div
             key={item.id}
@@ -37,7 +37,7 @@ const Info = () => {
               src={item.icon}
               alt={`Icon ${item.id}`}
             />
-            <p className="tracking-[-0.015] text-[0.9rem]  max-w-[280px] text-gray-700 text-justify font-semibold font-[family-name:var(--font-manrope)]">
+            <p className="tracking-[-0.015] text-[1rem] text-center  w-full md:max-w-[300px] text-gray-700 font-semibold font-[family-name:var(--font-manrope)]">
               {item.desc}
             </p>
           </div>
