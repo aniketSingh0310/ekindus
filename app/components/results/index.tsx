@@ -51,6 +51,8 @@ const Results = () => {
                 start={0}
                 end={startCount ? 13 : 0}
                 duration={4}
+                suffix='+'
+
                 className="text-[40px] md:text-[3rem] font-extrabold text-[#C5922C] font-[family-name:var(--font-rethink)]"
               />
              <h4 className='text-sm font-[family-name:var(--font-manrope)]'>Years Managed</h4>
