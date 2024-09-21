@@ -35,7 +35,7 @@ const Form = () => {
     try {
       setLoading(true);
 
-      const docRef = await addDoc(collection(db, "leads"), {
+       await addDoc(collection(db, "leads"), {
         fullName: data.fullName,
         email: data.email,
         phone: data.phone,
