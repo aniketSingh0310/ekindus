@@ -3,8 +3,6 @@ import { useState } from "react";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { collection, addDoc } from "firebase/firestore";
-import { db } from "@/lib/firebase"; // Import Firestore instance
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -35,17 +33,31 @@ const Form = () => {
     try {
       setLoading(true);
 
-       await addDoc(collection(db, "leads"), {
-        fullName: data.fullName,
-        email: data.email,
-        phone: data.phone,
-        country: data.country,
-        description: data.description,
-        timestamp: new Date(),
+      //  await addDoc(collection(db, "leads"), {
+      //   fullName: data.fullName,
+      //   email: data.email,
+      //   phone: data.phone,
+      //   country: data.country,
+      //   description: data.description,
+      //   timestamp: new Date(),
+      // });
+      
+      const response = await fetch('/api/submit-form', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
       });
-
-      // Reset the form fields
-      reset();
+  
+      if (response.ok) {
+        // Reset the form fields
+        reset();
+        toast.success("Form submitted successfully!");
+      } else {
+        toast.error("Error submitting the form. Please try again.");
+      }
+  
 
       // Show success toast
       toast.success("Form submitted successfully!");
