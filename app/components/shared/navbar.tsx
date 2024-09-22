@@ -31,7 +31,7 @@ const Navbar = () => {
     <>
       {/* Navbar */}
       <motion.nav
-        className={`fixed top-0 w-full transition-all duration-300  ${
+        className={`fixed top-0 w-full transition-all duration-300  z-[100] ${
           scrollPosition > 0 ? 'bg-white' : 'bg-white'
         } ease-in duration-150`}
         initial={{ y: -100 }}

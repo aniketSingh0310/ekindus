@@ -25,7 +25,7 @@ export async function POST(req) {
         // Send an email
         const info = await transporter.sendMail({
             from: '"Your Name" <your_email@example.com>', // Replace with your name and email
-            to: 'radhakishanjangid404@gmail.com', // The recipient email
+            to: 'aniketfcb10@gmail.com', // The recipient email
             subject: 'New Form Submission', // Subject line
             text: `You have a new form submission from ${body.fullName}.`, // Plain text body
             html: `
