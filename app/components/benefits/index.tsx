@@ -49,9 +49,9 @@ const Benefits = () => {
                 className="absolute top-0 left-0 w-full h-full"
                 initial={{ y: 0 }} // Fully visible initially
                 variants={{
-                  hover: { y: "100%", opacity: 0 }, // Slide down and fade out on hover
+                  hover: { y: "60%", opacity: 0 }, // Slide down and fade out on hover
                 }}
-                transition={{ duration: 0.6, ease: "easeInOut" }} // Smooth transition
+                transition={{ duration: 0.6 }} // Smooth transition
               >
                 <Image
                   src={benefit.image}
@@ -68,9 +68,9 @@ const Benefits = () => {
                 className="absolute top-0 left-0 w-full h-full"
                 initial={{ opacity: 1, scale: 1 }}  // Start fully visible
                 variants={{
-                  hover: { opacity: 1, scale: 1.05 },  // Scale up slightly on hover
+                  hover: { opacity: 1, scale: 1.04 },  // Scale up slightly on hover
                 }}
-                transition={{ duration: 0.6, ease: "easeInOut" }}  // Smooth transition
+                transition={{ duration: 0.8, }}  // Smooth transition
               >
                 <Image
                   src={benefit.image2}
