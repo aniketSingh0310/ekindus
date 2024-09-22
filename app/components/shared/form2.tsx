@@ -168,7 +168,7 @@ const Form2 = () => {
             >
               Phone Number
             </Label>
-            <div className="flex items-center w-full">
+            <div className="flex items-center">
               {/* <span className="inline-flex items-center px-3 py-2 border border-r-0 ${errors.fullName ? 'border-red-500' : 'border-[#F9F8F8]'} rounded-l-md bg-gray-50 text-gray-500 text-sm">
                 <Image
                   width={14}
@@ -180,9 +180,10 @@ const Form2 = () => {
                 +91
               </span> */}
               <PhoneInput
-                defaultCountry="ua"
+                defaultCountry="in"
                 value={phone}
                 onChange={(phone) => setPhone(phone)}
+                inputClassName="w-full"
                 className="w-full"
               />
               {/* <Input

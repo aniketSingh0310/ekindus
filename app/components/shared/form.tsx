@@ -117,7 +117,7 @@ const Form = () => {
                 defaultCountry="in"
                 value={phone}
                 onChange={(phone) => setPhone(phone)}
-                className="w-full"
+              inputClassName="w-full"
               />
           {/* <Input
             type="tel"
