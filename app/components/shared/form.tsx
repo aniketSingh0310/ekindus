@@ -9,6 +9,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
 import countries from "@/data/countries";
 import { toast } from "react-hot-toast"; // Import react-hot-toast
+import { PhoneInput } from "react-international-phone";
+import "react-international-phone/style.css";
 
 // Define Zod schema for validation
 const formSchema = z.object({
@@ -24,7 +26,7 @@ type FormData = z.infer<typeof formSchema>;
 
 const Form = () => {
   const [loading, setLoading] = useState(false);
-
+  const [phone, setPhone] = useState("");
   const { register, handleSubmit, formState: { errors }, setValue, reset } = useForm<FormData>({
     resolver: zodResolver(formSchema),
   });
@@ -111,13 +113,19 @@ const Form = () => {
           <Label className="block text-sm font-medium text-gray-700" htmlFor="phone">
             Phone Number
           </Label>
-          <Input
+          <PhoneInput
+                defaultCountry="in"
+                value={phone}
+                onChange={(phone) => setPhone(phone)}
+                className="w-full"
+              />
+          {/* <Input
             type="tel"
             id="phone"
             {...register("phone")}
             className={`mt-1 block w-full px-3 py-1 bg-white border ${errors.phone ? 'border-red-500' : 'border-[#F9F8F8]'} rounded-md shadow-sm`}
             placeholder="Enter your phone number"
-          />
+          /> */}
           {errors.phone && <p className="text-red-500 text-sm">{errors.phone.message}</p>}
         </div>
 

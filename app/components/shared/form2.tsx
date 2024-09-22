@@ -13,13 +13,13 @@ import {
 } from "@/components/ui/select";
 import React, { useState } from "react";
 import countries from "@/data/countries";
-
+import { PhoneInput } from "react-international-phone";
+import "react-international-phone/style.css";
 
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "react-hot-toast";
-// import countryList from "react-select-country-list";
 
 // Define Zod schema for validation
 const formSchema = z.object({
@@ -35,6 +35,7 @@ type FormData = z.infer<typeof formSchema>;
 
 const Form2 = () => {
   const [loading, setLoading] = useState(false);
+  const [phone, setPhone] = useState("");
 
   // const [selectedCountry, setSelectedCountry] = useState({
   //   label: "India",
@@ -52,7 +53,13 @@ const Form2 = () => {
   //     code: `+${country.dial_code}`, // Assuming you have a dial code mapping
   //   }));
 
-  const { register, handleSubmit, formState: { errors }, setValue, reset } = useForm<FormData>({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    setValue,
+    reset,
+  } = useForm<FormData>({
     resolver: zodResolver(formSchema),
   });
 
@@ -69,10 +76,10 @@ const Form2 = () => {
       //   timestamp: new Date(),
       // });
 
-      const response = await fetch('/api/submit-form', {
-        method: 'POST',
+      const response = await fetch("/api/submit-form", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
       });
@@ -84,7 +91,6 @@ const Form2 = () => {
       } else {
         toast.error("Error submitting the form. Please try again.");
       }
-
 
       // Show success toast
       toast.success("Form submitted successfully!");
@@ -120,10 +126,14 @@ const Form2 = () => {
               type="text"
               id="full-name"
               {...register("fullName")}
-              className={`mt-1 block w-full px-3 py-2 border ${errors.fullName ? 'border-red-500' : 'border-[#F9F8F8]'} rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500`}
+              className={`mt-1 block w-full px-3 py-2 border ${
+                errors.fullName ? "border-red-500" : "border-[#F9F8F8]"
+              } rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500`}
               placeholder="Enter your full name"
             />
-            {errors.fullName && <p className="text-red-500 text-sm">{errors.fullName.message}</p>}
+            {errors.fullName && (
+              <p className="text-red-500 text-sm">{errors.fullName.message}</p>
+            )}
           </div>
 
           {/* Email */}
@@ -138,10 +148,14 @@ const Form2 = () => {
               type="email"
               id="email"
               {...register("email")}
-              className={`mt-1 block w-full px-3 py-2 border ${errors.fullName ? 'border-red-500' : 'border-[#F9F8F8]'} rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500`}
+              className={`mt-1 block w-full px-3 py-2 border ${
+                errors.fullName ? "border-red-500" : "border-[#F9F8F8]"
+              } rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500`}
               placeholder="Enter your email"
             />
-            {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
+            {errors.email && (
+              <p className="text-red-500 text-sm">{errors.email.message}</p>
+            )}
           </div>
         </div>
 
@@ -154,7 +168,7 @@ const Form2 = () => {
             >
               Phone Number
             </Label>
-            <div className="flex items-center">
+            <div className="flex items-center w-full">
               {/* <span className="inline-flex items-center px-3 py-2 border border-r-0 ${errors.fullName ? 'border-red-500' : 'border-[#F9F8F8]'} rounded-l-md bg-gray-50 text-gray-500 text-sm">
                 <Image
                   width={14}
@@ -165,15 +179,25 @@ const Form2 = () => {
                 />
                 +91
               </span> */}
-              <Input
+              <PhoneInput
+                defaultCountry="ua"
+                value={phone}
+                onChange={(phone) => setPhone(phone)}
+                className="w-full"
+              />
+              {/* <Input
                 type="tel"
                 id="phone"
                 {...register("phone")}
-                className={`mt-1 block w-full px-3 py-2 border ${errors.fullName ? 'border-red-500' : 'border-[#F9F8F8]'} rounded-r-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500`}
+                className={`mt-1 block w-full px-3 py-2 border ${
+                  errors.fullName ? "border-red-500" : "border-[#F9F8F8]"
+                } rounded-r-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500`}
                 placeholder="Enter your phone number"
-              />
+              /> */}
             </div>
-            {errors.phone && <p className="text-red-500 text-sm">{errors.phone.message}</p>}
+            {errors.phone && (
+              <p className="text-red-500 text-sm">{errors.phone.message}</p>
+            )}
           </div>
 
           {/* Country Selector */}
@@ -223,7 +247,9 @@ const Form2 = () => {
         <div>
           <button
             type="submit"
-            className={`text-[#C5922C]  px-6 py-3 border border-[#C5922C] rounded-md font-[family-name:var(--font-manrope)] text-sm md:text-[1rem]  ${loading ? 'opacity-50' : ''}`}
+            className={`text-[#C5922C]  px-6 py-3 border border-[#C5922C] rounded-md font-[family-name:var(--font-manrope)] text-sm md:text-[1rem]  ${
+              loading ? "opacity-50" : ""
+            }`}
           >
             {loading ? "Submitting..." : "Submit"}
           </button>
