@@ -11,7 +11,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import Image from "next/image";
 import React, { useState } from "react";
 import countries from "@/data/countries";
 
@@ -20,7 +19,7 @@ import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "react-hot-toast";
-import countryList from "react-select-country-list";
+// import countryList from "react-select-country-list";
 
 // Define Zod schema for validation
 const formSchema = z.object({
@@ -37,21 +36,21 @@ type FormData = z.infer<typeof formSchema>;
 const Form2 = () => {
   const [loading, setLoading] = useState(false);
 
-  const [selectedCountry, setSelectedCountry] = useState({
-    label: "India",
-    value: "IN",
-    flag: "https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg",
-    code: "+91",
-  });
+  // const [selectedCountry, setSelectedCountry] = useState({
+  //   label: "India",
+  //   value: "IN",
+  //   flag: "https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg",
+  //   code: "+91",
+  // });
 
-  const countriesWithIcon = countryList()
-    .getData()
-    .map((country: any) => ({
-      label: country.label,
-      value: country.value,
-      flag: `https://flagcdn.com/16x12/${country.value.toLowerCase()}.png`, // Using flagcdn.com for country flags
-      code: `+${country.dial_code}`, // Assuming you have a dial code mapping
-    }));
+  // const countriesWithIcon = countryList()
+  //   .getData()
+  //   .map((country: any) => ({
+  //     label: country.label,
+  //     value: country.value,
+  //     flag: `https://flagcdn.com/16x12/${country.value.toLowerCase()}.png`, // Using flagcdn.com for country flags
+  //     code: `+${country.dial_code}`, // Assuming you have a dial code mapping
+  //   }));
 
   const { register, handleSubmit, formState: { errors }, setValue, reset } = useForm<FormData>({
     resolver: zodResolver(formSchema),
@@ -101,9 +100,9 @@ const Form2 = () => {
     }
   };
 
-  const handleCountryChange = (selected: any) => {
-    setSelectedCountry(selected);
-  };
+  // const handleCountryChange = (selected: any) => {
+  //   setSelectedCountry(selected);
+  // };
 
   return (
     <div className="p-5 md:p-[3rem] bg-white">
