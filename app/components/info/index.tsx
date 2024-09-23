@@ -20,11 +20,10 @@ const Item: React.FC<ItemProps> = ({ item, index }) => {
 
   return (
     <motion.div
-      
       className="flex flex-col gap-4 items-center mx-auto"
       initial={{ opacity: 0, y: 20 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 1.5, delay: index * 0.2 }} // Delay based on index for staggered effect
+      transition={{ duration: 1.5, delay: index * 0.3 }} // Delay based on index for staggered effect
     >
       <Image
       
@@ -33,7 +32,7 @@ const Item: React.FC<ItemProps> = ({ item, index }) => {
         src={item.icon}
         alt={`Icon ${item.id}`}
       />
-      <p ref={ref} className="tracking-[-0.015] text-[1rem] text-center w-full md:max-w-[300px] text-gray-700 font-semibold font-[family-name:var(--font-manrope)]">
+      <p id="q1" ref={ref} className="tracking-[-0.015] text-[1rem] text-center w-full md:max-w-[300px] text-gray-700 font-semibold font-[family-name:var(--font-manrope)]">
         {item.desc}
       </p>
     </motion.div>

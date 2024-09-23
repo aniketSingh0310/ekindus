@@ -3,7 +3,7 @@ import React from "react";
 const About = () => {
   return (
     <div
-      id="q1"
+      
       className="w-full bg-[url('/liberty.png')] bg-cover bg-center flex justify-center py-[4rem] md:py-[5rem] lg:py-[6rem]"
     >
       <div className="lg:max-w-[90vw] xl:max-w-[85vw] w-full flex flex-col md:flex-row justify-between text-white gap-[3rem] md:gap-[5rem] lg:gap-[10rem] xl:gap-[15rem] px-6 md:px-10 lg:px-0">

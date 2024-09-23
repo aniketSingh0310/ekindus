@@ -40,7 +40,7 @@ const Form = () => {
   const [loading, setLoading] = useState(false);
   const [phone, setPhone] = useState("");
   const [submitted, setSubmitted] = useState(false);
-  
+
   const {
     register,
     handleSubmit,
@@ -155,6 +155,7 @@ const Form = () => {
           <PhoneInput
             defaultCountry="in"
             value={phone}
+            forceDialCode={true}
             onChange={(phone) => {
               setPhone(phone);
               setValue("phone", phone); // Update the phone value in react-hook-form

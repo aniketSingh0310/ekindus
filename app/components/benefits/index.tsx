@@ -82,7 +82,7 @@ const Benefits = () => {
               </motion.div>
             </motion.div>
 
-            <p className='bg-white shadow-sm text-center px-2 py-2 font-[family-name:var(--font-manrope)] text-[13.5px] tracking-tight'>
+            <p id='q2' className='bg-white shadow-sm text-center px-2 py-2 font-[family-name:var(--font-manrope)] text-[13.5px] tracking-tight'>
               {benefit.title}
             </p>
           </div>

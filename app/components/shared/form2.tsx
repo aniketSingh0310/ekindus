@@ -158,6 +158,7 @@ const Form2 = () => {
             <PhoneInput
               defaultCountry="in"
               value={phone}
+              forceDialCode={true}
               onChange={(phone) => {
                 setPhone(phone);
                 setValue("phone", phone); // Update the phone value in react-hook-form

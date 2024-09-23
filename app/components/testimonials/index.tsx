@@ -24,7 +24,7 @@ const Testimonials = () => {
               className="absolute right-5 bottom-16"
             />
             <div className="flex flex-col">
-              <p className="text-justify p-5 text-base font-[family-name:var(--font-rethink)] tracking-[-0.020em]">
+              <p className="text-justify p-5 text-base font-[family-name:var(--font-rethink)] tracking-[-0.020em] h-[150px] ">
                 We are very happy that we completed the EB-5 process
                 successfully. It was easy to work with you and we will recommend
                 others to choose your next EB-5 project!
@@ -50,7 +50,7 @@ const Testimonials = () => {
               className="absolute right-5 bottom-16"
             />
             <div className="flex flex-col">
-              <p className="text-justify p-5 text-base font-[family-name:var(--font-rethink)] tracking-[-0.020em]">
+              <p className="text-justify p-5 text-base font-[family-name:var(--font-rethink)] tracking-[-0.020em] h-[150px]">
                 I invested and got my Green Card. Then I recommended my friend
                 to choose your next project and they got their Green Card too!
               </p>

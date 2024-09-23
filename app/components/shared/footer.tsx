@@ -21,13 +21,13 @@ const Footer = () => {
         <div className="flex flex-col text-white font-[family-name:var(--font-manrope)] text-[1.2rem]">
           <ul className="space-y-3 text-center md:text-start text-base">
             <Link href={"#q1"}>
-              <li>What is the EB-5 Investor Program?</li>
+              <li className="hover:underline decoration-1 underline-offset-2">What is the EB-5 Investor Program?</li>
             </Link>
             <Link href={"#q2"}>
-              <li>The Ek.indUS Advantage</li>
+              <li className="hover:underline decoration-1 underline-offset-2">The Ek.indUS Advantage</li>
             </Link>
             <Link href={"#q3"}>
-              <li>EB-5 Visa Requirements</li>
+              <li className="hover:underline decoration-1 underline-offset-2">EB-5 Visa Requirements</li>
             </Link>
           </ul>
         </div>
@@ -66,7 +66,7 @@ const Footer = () => {
       </div>
       <div className="w-full h-[1px] bg-white/30 my-4"></div>
       <div className="w-full flex justify-center items-center text-white/80 font-[family-name:var(--font-manrope)] text-sm mt-2 text-center">
-        © 2024 Ek.IndUS. All Rights Reserved.
+        © 2024 Ek.indUS. All Rights Reserved.
       </div>
     </div>
   );
