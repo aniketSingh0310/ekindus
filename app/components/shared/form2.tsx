@@ -20,12 +20,16 @@ import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "react-hot-toast";
+import { addDoc, collection } from "firebase/firestore";
+import { db } from "@/lib/firebase";
 
 // Define Zod schema for validation
 const formSchema = z.object({
   fullName: z.string().min(2, { message: "Full name is required" }),
   email: z.string().email({ message: "Invalid email address" }),
-  phone: z.string().min(10, { message: "Phone number should have at least 10 digits" }),
+  phone: z
+    .string()
+    .min(10, { message: "Phone number should have at least 10 digits" }),
   country: z.string().min(1, { message: "Please select a country" }),
   description: z.string().optional(),
 });
@@ -36,22 +40,7 @@ type FormData = z.infer<typeof formSchema>;
 const Form2 = () => {
   const [loading, setLoading] = useState(false);
   const [phone, setPhone] = useState("");
-
-  // const [selectedCountry, setSelectedCountry] = useState({
-  //   label: "India",
-  //   value: "IN",
-  //   flag: "https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg",
-  //   code: "+91",
-  // });
-
-  // const countriesWithIcon = countryList()
-  //   .getData()
-  //   .map((country: any) => ({
-  //     label: country.label,
-  //     value: country.value,
-  //     flag: `https://flagcdn.com/16x12/${country.value.toLowerCase()}.png`, // Using flagcdn.com for country flags
-  //     code: `+${country.dial_code}`, // Assuming you have a dial code mapping
-  //   }));
+  const [submitted, setSubmitted] = useState(false);
 
   const {
     register,
@@ -67,35 +56,37 @@ const Form2 = () => {
     try {
       setLoading(true);
 
-      //  await addDoc(collection(db, "leads"), {
-      //   fullName: data.fullName,
-      //   email: data.email,
-      //   phone: data.phone,
-      //   country: data.country,
-      //   description: data.description,
-      //   timestamp: new Date(),
-      // });
-
-      const response = await fetch("/api/submit-form", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
+      await addDoc(collection(db, "leads"), {
+        fullName: data.fullName,
+        email: data.email,
+        phone: data.phone,
+        country: data.country,
+        description: data.description,
+        timestamp: new Date(),
       });
 
-      if (response.ok) {
-        // Reset the form fields
-        reset();
-        toast.success("Form submitted successfully!");
-      } else {
-        toast.error("Error submitting the form. Please try again.");
-      }
+      // const response = await fetch("/api/submit-form", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify(data),
+      // });
+
+      // if (response.ok) {
+      //   // Reset the form fields
+      //   reset();
+      //   toast.success("Form submitted successfully!");
+      // } else {
+      //   toast.error("Error submitting the form. Please try again.");
+      // }
 
       // Show success toast
+      reset();
       toast.success("Form submitted successfully!");
-
+      setSubmitted(true);
       setLoading(false);
+      setTimeout(() => setSubmitted(false), 10000);
     } catch (error) {
       console.error("Error adding document: ", error);
 
@@ -105,10 +96,6 @@ const Form2 = () => {
       setLoading(false);
     }
   };
-
-  // const handleCountryChange = (selected: any) => {
-  //   setSelectedCountry(selected);
-  // };
 
   return (
     <div className="p-5 md:p-[3rem] bg-white">
@@ -168,33 +155,25 @@ const Form2 = () => {
             >
               Phone Number
             </Label>
+            <PhoneInput
+              defaultCountry="in"
+              value={phone}
+              onChange={(phone) => {
+                setPhone(phone);
+                setValue("phone", phone); // Update the phone value in react-hook-form
+              }}
+              inputClassName={`w-full ${errors.phone ? "border-red-500" : ""}`} // Add error styles if validation fails
+            />
             <div className="flex items-center">
-              {/* <span className="inline-flex items-center px-3 py-2 border border-r-0 ${errors.fullName ? 'border-red-500' : 'border-[#F9F8F8]'} rounded-l-md bg-gray-50 text-gray-500 text-sm">
-                <Image
-                  width={14}
-                  height={14}
-                  src="https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg"
-                  alt="India flag"
-                  className="h-4 w-6 mr-2"
-                />
-                +91
-              </span> */}
-              <PhoneInput
-                defaultCountry="in"
-                value={phone}
-                onChange={(phone) => setPhone(phone)}
-                inputClassName="w-full"
-                className="w-full"
+              <Input
+                type="email"
+                id="email"
+                {...register("email")}
+                className={`mt-1 block w-full bg-white px-3 py-1 border ${
+                  errors.email ? "border-red-500" : "border-[#F9F8F8]"
+                } rounded-md shadow-sm`}
+                placeholder="Enter your email"
               />
-              {/* <Input
-                type="tel"
-                id="phone"
-                {...register("phone")}
-                className={`mt-1 block w-full px-3 py-2 border ${
-                  errors.fullName ? "border-red-500" : "border-[#F9F8F8]"
-                } rounded-r-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500`}
-                placeholder="Enter your phone number"
-              /> */}
             </div>
             {errors.phone && (
               <p className="text-red-500 text-sm">{errors.phone.message}</p>
@@ -245,7 +224,7 @@ const Form2 = () => {
         </div>
 
         {/* Submit Button */}
-        <div>
+        <div className="flex gap-4">
           <button
             type="submit"
             className={`text-[#C5922C]  px-6 py-3 border border-[#C5922C] rounded-md font-[family-name:var(--font-manrope)] text-sm md:text-[1rem]  ${
@@ -254,6 +233,11 @@ const Form2 = () => {
           >
             {loading ? "Submitting..." : "Submit"}
           </button>
+          {submitted && (
+        <div className="p-4 text-green-700 bg-green-100 rounded-md">
+          Form submitted successfully!
+        </div>
+      )}
         </div>
       </form>
     </div>
