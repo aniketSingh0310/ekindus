@@ -21,6 +21,7 @@ import { PhoneInput } from "react-international-phone";
 import "react-international-phone/style.css";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "@/lib/firebase";
+import SubmitButton from "./Button";
 
 // Define Zod schema for validation
 const formSchema = z.object({
@@ -220,17 +221,9 @@ const Form = () => {
 
         {/* Submit Button */}
         <div className="flex gap-4 ">
-          <button
-            type="submit"
-            disabled={loading}
-            className={`text-[#C5922C] bg-white px-6 py-3 border border-[#C5922C] rounded-md ${
-              loading ? "opacity-50" : ""
-            }`}
-          >
-            {loading ? "Submitting..." : "Submit"}
-          </button>
+          <SubmitButton>{loading ? "Submitting..." : "Submit Details"}</SubmitButton>
           {submitted && (
-        <div className="p-4 text-green-700 bg-green-100 rounded-md">
+        <div className="p-2 text-green-700 bg-green-100 rounded-md text-sm">
           Form submitted successfully!
         </div>
       )}

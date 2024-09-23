@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { RiWhatsappLine } from "react-icons/ri";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import SubmitButton from "./Button";
 
 const Navbar = () => {
   // Scroll behavior state
@@ -50,9 +51,8 @@ const Navbar = () => {
 
           <div className="flex items-center gap-3">
             <Link href={"#contact"}>
-              <button className="text-[#C5922C] px-10 py-2 border border-[#C5922C] rounded-md font-[family-name:var(--font-manrope)] text-sm md:text-[0.9rem]">
-                Get in Touch
-              </button>
+              
+              <SubmitButton>Get In Touch</SubmitButton>
             </Link>
             <Link
              href={`https://wa.me/15125651075?text=${encodeURIComponent(

@@ -22,6 +22,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "react-hot-toast";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "@/lib/firebase";
+import SubmitButton from "./Button";
 
 // Define Zod schema for validation
 const formSchema = z.object({
@@ -98,7 +99,7 @@ const Form2 = () => {
   };
 
   return (
-    <div className="p-5 md:p-[3rem] bg-white">
+    <div className="p-5 md:p-[3rem]">
       <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
         <div className="flex flex-row gap-4">
           {/* Full Name */}
@@ -114,7 +115,7 @@ const Form2 = () => {
               id="full-name"
               {...register("fullName")}
               className={`mt-1 block w-full px-3 py-2 border ${
-                errors.fullName ? "border-red-500" : "border-[#F9F8F8]"
+                errors.fullName ? "border-red-500" : "border-gray-200"
               } rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500`}
               placeholder="Enter your full name"
             />
@@ -136,7 +137,7 @@ const Form2 = () => {
               id="email"
               {...register("email")}
               className={`mt-1 block w-full px-3 py-2 border ${
-                errors.fullName ? "border-red-500" : "border-[#F9F8F8]"
+                errors.fullName ? "border-red-500" : "border-gray-200"
               } rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500`}
               placeholder="Enter your email"
             />
@@ -163,19 +164,9 @@ const Form2 = () => {
                 setPhone(phone);
                 setValue("phone", phone); // Update the phone value in react-hook-form
               }}
-              inputClassName={`w-full ${errors.phone ? "border-red-500" : ""}`} // Add error styles if validation fails
+              inputClassName={`w-full ${errors.phone ? "border-red-500" : "border-gray-200"}`} // Add error styles if validation fails
             />
-            <div className="flex items-center">
-              <Input
-                type="email"
-                id="email"
-                {...register("email")}
-                className={`mt-1 block w-full bg-white px-3 py-1 border ${
-                  errors.email ? "border-red-500" : "border-[#F9F8F8]"
-                } rounded-md shadow-sm`}
-                placeholder="Enter your email"
-              />
-            </div>
+            
             {errors.phone && (
               <p className="text-red-500 text-sm">{errors.phone.message}</p>
             )}
@@ -190,7 +181,7 @@ const Form2 = () => {
               Country of Residence
             </Label>
             <Select onValueChange={(value) => setValue("country", value)}>
-              <SelectTrigger className="w-full ${errors.fullName ? 'border-red-500' : 'border-[#F9F8F8]'}">
+              <SelectTrigger className="w-full ${errors.fullName ? 'border-red-500' : 'border-gray-200'}">
                 <SelectValue placeholder="Choose a country" />
               </SelectTrigger>
               <SelectContent>
@@ -225,17 +216,10 @@ const Form2 = () => {
         </div>
 
         {/* Submit Button */}
-        <div className="flex gap-4">
-          <button
-            type="submit"
-            className={`text-[#C5922C]  px-6 py-3 border border-[#C5922C] rounded-md font-[family-name:var(--font-manrope)] text-sm md:text-[1rem]  ${
-              loading ? "opacity-50" : ""
-            }`}
-          >
-            {loading ? "Submitting..." : "Submit"}
-          </button>
+        <div className="flex gap-4 ">
+          <SubmitButton>{loading ? "Submitting..." : "Submit Details"}</SubmitButton>
           {submitted && (
-        <div className="p-4 text-green-700 bg-green-100 rounded-md">
+        <div className="p-2 text-green-700 bg-green-100 rounded-md text-sm">
           Form submitted successfully!
         </div>
       )}

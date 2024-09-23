@@ -1,0 +1,60 @@
+/* Button styling */
+.btn {
+    color: #C5922C;
+    text-decoration: none;
+    border: 1px solid #C5922C;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 500;
+    background: transparent;
+    position: relative;
+    transition: all 1s;
+    overflow: hidden;
+    border-radius: calc(var(--radius) - 2px);
+    display: inline-block;
+    width: 100%;
+    
+}
+
+.btn:hover {
+    color: white;
+}
+
+
+
+/* Purple background swipe from left to right */
+.btn::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 0%;
+    top: 0;
+    left: -40px;
+    transform: skewX(45deg);
+    background-color: #C5922C;
+    z-index: -1;
+    transition: all 0.7s;
+}
+
+.btn:hover::before {
+    width: 80%;  
+}
+
+/* Yellow background swipe from right to left */
+.btn::after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 0%;
+    top: 0;
+    right: -40px;
+    transform: skewX(45deg);
+    background-color: #3B6F80;
+    z-index: -2;
+    transition: all 0.7s;
+}
+
+.btn:hover::after {
+    width: 80%;  
+}
