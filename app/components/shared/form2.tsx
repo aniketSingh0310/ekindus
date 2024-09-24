@@ -66,7 +66,7 @@ const Form2 = () => {
         timestamp: new Date(),
       });
 
-      const response = await fetch("/api/submit-form", {
+      await fetch("/api/submit-form", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
