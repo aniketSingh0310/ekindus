@@ -21,13 +21,13 @@ const Footer = () => {
         <div className="flex flex-col text-white font-[family-name:var(--font-manrope)] text-[1.2rem]">
           <ul className="space-y-3 text-center md:text-start text-base">
             <Link href={"#q1"}>
-              <li className="hover:underline decoration-1 underline-offset-2">What is the EB-5 Investor Program?</li>
+              <li className="hover:underline decoration-1 underline-offset-2">What is an EB-5 visa?</li>
             </Link>
             <Link href={"#q2"}>
-              <li className="hover:underline decoration-1 underline-offset-2">The Ek.indUS Advantage</li>
+              <li className="hover:underline decoration-1 underline-offset-2">Why Ek.indUS?</li>
             </Link>
             <Link href={"#q3"}>
-              <li className="hover:underline decoration-1 underline-offset-2">EB-5 Visa Requirements</li>
+              <li className="hover:underline decoration-1 underline-offset-2">Qualification Criteria for EB-5 visa</li>
             </Link>
           </ul>
         </div>
