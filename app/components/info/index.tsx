@@ -44,17 +44,17 @@ const Info: React.FC = () => {
     {
       id: 1,
       icon: "/icon1.svg",
-      desc: "Invest a minimum of $800,000 in a commercial project within the U.S.",
+      desc: "Financial means to make an investment of USD $800K",
     },
     {
       id: 2,
       icon: "/icon2.svg",
-      desc: "Prove that funds are lawfully sourced ",
+      desc: "Able to prove that the funds are lawfully sourced",
     },
     {
       id: 3,
       icon: "/icon3.svg",
-      desc: "Have no criminal or financial fraud convictions or U.S. immigration law violations",
+      desc: " Have no criminal or financial fraud convictions or U.S. immigration law violations",
     },
   ];
 

@@ -17,7 +17,7 @@ const Hero = () => {
       <div className="absolute top-0 left-0 w-full h-full bg-black opacity-30"></div>
 
       {/* Content Container */}
-      <div className="relative z-10 flex flex-col md:flex-row justify-between max-w-7xl px-[7rem] h-full mx-auto">
+      <div className="relative z-10 flex flex-col md:flex-row justify-between max-w-7xl md:px-[7rem] lg:px-[5rem] xl:px-[3rem] h-full mx-auto">
         {/* Left Section - Text */}
         <div className="text-white py-[7rem] md:pt-[5rem] md:pb-[10rem] flex flex-col justify-center md:translate-y-[-10%] lg:translate-y-0">
           <h1 className="text-[2rem] md:text-[2.8rem] lg:text-[3.5rem] font-bold font-[family-name:var(--font-rethink)] leading-[1.2] md:leading-[1.1] text-center">

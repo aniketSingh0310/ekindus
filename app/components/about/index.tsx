@@ -2,10 +2,7 @@ import React from "react";
 
 const About = () => {
   return (
-    <div
-      
-      className="w-full bg-[url('/liberty.png')] bg-cover bg-center flex justify-center py-[4rem] md:py-[5rem] lg:py-[6rem]"
-    >
+    <div className="w-full bg-[url('/liberty.png')] bg-cover bg-center flex justify-center py-[4rem] md:py-[6rem] lg:py-[6.4rem]">
       <div className="lg:max-w-[90vw] xl:max-w-[85vw] w-full flex flex-col md:flex-row justify-between text-white gap-[3rem] md:gap-[5rem] lg:gap-[10rem] xl:gap-[15rem] px-6 md:px-10 lg:px-0">
         {/* Section 1 */}
         <div id="sec1" className="md:w-1/2">
@@ -14,13 +11,15 @@ const About = () => {
           </h3>
           <p className="text-[1rem] lg:text-[1rem] text-justify font-normal font-[family-name:var(--font-manrope)] tracking-tight mt-4 leading-snug">
             The EB-5 Immigrant Investor Program allows a non-US investor
-            applicant and their immediate family members to gain permanent
-            residency status and receive a green card. Through the EB-5 program,
+            applicant and their immediate family members to gain USA permanent
+            residency status and receive a Green Card. Through the EB-5 program,
             the qualified applicant invests a minimum of USD $800,000 into a
-            project, within the U.S, and the investment must lead to the
+            project, within the U.S., and the investment must lead to the
             creation of 10+ American jobs. The most common types of EB-5
             investments are real estate development projects located in a
-            Targeted Employment Area (“TEA”).
+            Targeted Employment Area (“TEA”). Once the requirements have been
+            achieved and the Green Card is granted, the funds are returned to
+            the investor applicant.
           </p>
         </div>
         {/* Section 2 */}
@@ -38,10 +37,10 @@ const About = () => {
           </p>
           <p className="mt-5 text-[1rem] lg:text-[1rem] leading-snug tracking-tight text-justify font-normal font-[family-name:var(--font-manrope)]">
             Expertise is not our only differentiating factor. In a space filled
-            with “experts” looking to earn a commission from pitching unrelated
-            investment projects, Ek.indUS will be your reliable partner. Our
-            team will be by your side as you step towards obtaining permanent
-            U.S. residency.
+            with “experts” looking to earn a commission from pitching the
+            investment projects of an unrelated third party, Ek.indUS will be
+            your reliable partner. Our team will be by your side as you step
+            toward obtaining permanent U.S. residency.
           </p>
         </div>
       </div>
