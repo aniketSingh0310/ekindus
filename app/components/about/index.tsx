@@ -2,7 +2,8 @@ import React from "react";
 
 const About = () => {
   return (
-    <div className="w-full bg-[url('/liberty.png')] bg-cover bg-center flex justify-center py-[4rem] md:py-[6rem] lg:py-[6.4rem]">
+    <div className="w-full bg-[url('/liberty.png')] bg-cover bg-center flex flex-col">
+    <div className="w-full  flex justify-center py-[4rem] md:py-[6rem] lg:py-[6.4rem]">
       <div className="lg:max-w-[90vw] xl:max-w-[85vw] w-full flex flex-col md:flex-row justify-between text-white gap-[3rem] md:gap-[5rem] lg:gap-[10rem] xl:gap-[15rem] px-6 md:px-10 lg:px-0">
         {/* Section 1 */}
         <div id="sec1" className="md:w-1/2">
@@ -44,6 +45,13 @@ const About = () => {
           </p>
         </div>
       </div>
+      
+    </div>
+    <p className="text-xs text-center text-white/70 ml-5 mb-3 tracking-tight">
+        (partnership with IMMCO investments, the EB-5 manager and the Regional
+        Center sponsoring the investment project.)
+      </p>
+      
     </div>
   );
 };

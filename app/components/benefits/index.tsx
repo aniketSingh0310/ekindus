@@ -9,26 +9,26 @@ const data = [
   {
     id: 1,
     title: 'Freedom to live anywhere in the U.S. and travel anywhere in the world',
-    image: '/benefits/bldg.jpg',
-    image2: '/benefits/bldg2.png'
+    image: '/benefits2/bldg.jpg',
+    image2: '/benefits2/bldg2.png'
   },
   {
     id: 2,
     title: 'Ability to attend U.S. schools at the same cost as citizens',
-    image: '/benefits/flag.jpg',
-    image2: '/benefits/falg2.png'
+    image: '/benefits2/flag.jpg',
+    image2: '/benefits2/flag2.png'
   },
   {
     id: 3,
     title: 'Liberty to apply for scholarships and prestigious internships',
-    image: '/benefits/education.jpg',
-    image2: '/benefits/education2.png'
+    image: '/benefits2/education.jpg',
+    image2: '/benefits2/education2.png'
   },
   {
     id: 4,
     title: 'Right to get a job of your choice or to start your own business',
-    image: '/benefits/men.jpg',
-    image2: '/benefits/men2.png'
+    image: '/benefits2/men.jpg',
+    image2: '/benefits2/men2.png'
   }
 ];
 
@@ -49,9 +49,9 @@ const Benefits = () => {
                 className="absolute top-0 left-0 w-full h-full"
                 initial={{ y: 0 }} // Fully visible initially
                 variants={{
-                  hover: { y: "60%", opacity: 0 }, // Slide down and fade out on hover
+                  hover: { y: "30%", opacity: 1 }, // Slide down and fade out on hover
                 }}
-                transition={{ duration: 0.6 }} // Smooth transition
+                transition={{ duration: 0.5 }} // Smooth transition
               >
                 <Image
                   src={benefit.image}
@@ -68,7 +68,7 @@ const Benefits = () => {
                 className="absolute top-0 left-0 w-full h-full"
                 initial={{ opacity: 1, scale: 1 }}  // Start fully visible
                 variants={{
-                  hover: { opacity: 1, scale: 1.04 },  // Scale up slightly on hover
+                  hover: { opacity: 1, scale: 1.07 },  // Scale up slightly on hover
                 }}
                 transition={{ duration: 0.8, }}  // Smooth transition
               >

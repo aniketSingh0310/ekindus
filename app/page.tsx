@@ -1,6 +1,7 @@
 import About from "./components/about";
 import Benefits from "./components/benefits";
 import Contact from "./components/contact";
+import Disclaimer from "./components/Disclaimer";
 import Hero from "./components/hero";
 import MobHero from "./components/hero/mobIndex";
 import Info from "./components/info";
@@ -16,6 +17,7 @@ export default function Home() {
     <About/>
     <Benefits/>
     <Results/>
+    <Disclaimer/>
     <Contact/>
     <Testimonials/>
     </>
