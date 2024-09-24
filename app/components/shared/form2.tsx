@@ -66,13 +66,13 @@ const Form2 = () => {
         timestamp: new Date(),
       });
 
-      // const response = await fetch("/api/submit-form", {
-      //   method: "POST",
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      //   body: JSON.stringify(data),
-      // });
+      const response = await fetch("/api/submit-form", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
 
       // if (response.ok) {
       //   // Reset the form fields

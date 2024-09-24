@@ -13,19 +13,19 @@ export async function POST(req) {
 
         // Create a Nodemailer transporter
         const transporter = nodemailer.createTransport({
-            host: 'smtp.example.com', // Replace with your SMTP host (e.g., smtp.gmail.com for Gmail)
+            host: 'smtp.gmail.com', // Replace with your SMTP host (e.g., smtp.gmail.com for Gmail)
             port: 465, // Use port 465 for secure connections or 587 for TLS
             secure: true, // true for 465, false for other ports
             auth: {
-                user: 'your_email@example.com', // Replace with your SMTP email
-                pass: 'your_email_password', // Replace with your SMTP email password or app password
+                user: 'info@ekindus.com', // Replace with your SMTP email
+                pass: '0Arth.1Akil', // Replace with your SMTP email password or app password
             },
         });
 
         // Send an email
         const info = await transporter.sendMail({
-            from: '"Your Name" <your_email@example.com>', // Replace with your name and email
-            to: 'aniketfcb10@gmail.com', // The recipient email
+            from: '"Ekindus" <info@ekindus.com>', // Replace with your name and email
+            to: 'radhakishanjangid404@gmail.com', // The recipient email
             subject: 'New Form Submission', // Subject line
             text: `You have a new form submission from ${body.fullName}.`, // Plain text body
             html: `
