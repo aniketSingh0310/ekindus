@@ -27,9 +27,7 @@ import SubmitButton from "./Button";
 const formSchema = z.object({
   fullName: z.string().min(2, { message: "Full name is required" }),
   email: z.string().email({ message: "Invalid email address" }),
-  phone: z
-    .string()
-    .min(10, { message: "Phone number should have at least 10 digits" }),
+  phone: z.string().min(10, { message: "Phone number should have at least 10 digits" }),
   country: z.string().min(1, { message: "Please select a country" }),
   description: z.string().optional(),
 });
@@ -52,10 +50,57 @@ const Form = () => {
     resolver: zodResolver(formSchema),
   });
 
+  // const onSubmit = async (data: FormData) => {
+  //   try {
+  //     setLoading(true);
+
+  //     await addDoc(collection(db, "leads"), {
+  //       fullName: data.fullName,
+  //       email: data.email,
+  //       phone: data.phone,
+  //       country: data.country,
+  //       description: data.description,
+  //       timestamp: new Date(),
+  //     });
+
+  //      await fetch('/api/submit-form', {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify(data),
+  //     });
+
+  //     // if (response.ok) {
+  //     //   // Reset the form fields
+  //     //   reset();
+  //     //   toast.success("Form submitted successfully!");
+  //     // } else {
+  //     //   toast.error("Error submitting the form. Please try again.");
+  //     // }
+
+  //     reset();
+  //     // Show success toast
+  //     toast.success("Form submitted successfully!");
+  //     setSubmitted(true);
+
+  //     setLoading(false);
+  //     setTimeout(() => setSubmitted(false), 10000);
+  //   } catch (error) {
+  //     console.error("Error adding document: ", error);
+
+  //     // Show error toast
+  //     toast.error("Error submitting the form. Please try again.");
+
+  //     setLoading(false);
+  //   }
+  // };
+
   const onSubmit = async (data: FormData) => {
     try {
       setLoading(true);
-
+  
+      // 1. Save the form data to Firestore
       await addDoc(collection(db, "leads"), {
         fullName: data.fullName,
         email: data.email,
@@ -64,40 +109,38 @@ const Form = () => {
         description: data.description,
         timestamp: new Date(),
       });
-
-       await fetch('/api/submit-form', {
-        method: 'POST',
+  
+      // 2. Send email via Brevo using the API
+      const emailResponse = await fetch("/api/submit-form", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
       });
-
-      // if (response.ok) {
-      //   // Reset the form fields
-      //   reset();
-      //   toast.success("Form submitted successfully!");
-      // } else {
-      //   toast.error("Error submitting the form. Please try again.");
-      // }
-
+  
+      if (!emailResponse.ok) {
+        throw new Error("Failed to send email");
+      }
+  
+      // 3. Reset the form and show a success message
       reset();
-      // Show success toast
-      toast.success("Form submitted successfully!");
+      toast.success("Form submitted and email sent successfully!");
       setSubmitted(true);
-
-      setLoading(false);
+      
+      // Clear the success message after 10 seconds
       setTimeout(() => setSubmitted(false), 10000);
+  
     } catch (error) {
-      console.error("Error adding document: ", error);
-
-      // Show error toast
+      console.error("Error submitting the form or sending email:", error);
+  
+      // Show an error toast
       toast.error("Error submitting the form. Please try again.");
-
+    } finally {
       setLoading(false);
     }
   };
-
+  
   return (
     <div className="p-5 bg-white/80 opacity-90 backdrop-blur-sm rounded-md ">
       <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
