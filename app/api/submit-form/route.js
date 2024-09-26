@@ -60,6 +60,7 @@ const sendEmail = async (body) => {
 
 
 export async function POST(req) {
+  console.log("Received request at /api/submit-form");
   try {
     const body = await req.json();
 
@@ -76,6 +77,7 @@ export async function POST(req) {
       headers: { 'Content-Type': 'application/json' },
     });
   } catch (error) {
+    console.error("Error in POST /api/submit-form:", error);
     console.error('Error processing form submission:', error);
     return new Response(JSON.stringify({ message: 'Failed to submit form' }), {
       status: 500,
