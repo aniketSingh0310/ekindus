@@ -66,7 +66,7 @@ const Form = () => {
       });
   
       // 2. Send email via Brevo using the API
-      const emailResponse = await fetch("https://www.ekindus.com/api/submit-form", {
+      const emailResponse = await fetch("/api/submit-form", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

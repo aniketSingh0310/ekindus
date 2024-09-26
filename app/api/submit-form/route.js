@@ -74,14 +74,20 @@ export async function POST(req) {
     // Return a success response
     return new Response(JSON.stringify({ message: 'Form submitted and email sent successfully' }), {
       status: 200,
-      headers: { 'Content-Type': 'application/json' },
+      // headers: { 'Content-Type': 'application/json' },
+      headers: {
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*', // Allow requests from all origins
+      'Access-Control-Allow-Methods': 'POST, OPTIONS', // Allowed methods
+    },
     });
   } catch (error) {
     console.error("Error in POST /api/submit-form:", error);
     console.error('Error processing form submission:', error);
     return new Response(JSON.stringify({ message: 'Failed to submit form' }), {
       status: 500,
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json' }, 
+      
     });
   }
 }
