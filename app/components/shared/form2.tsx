@@ -89,7 +89,7 @@ const Form2 = () => {
       setTimeout(() => setSubmitted(false), 10000);
   
     } catch (error) {
-      console.error("Error submitting the form or sending email:", error);
+      console.error("Error submitting the form or sending email", error);
   
       // Show an error toast
       toast.error("Error submitting the form. Please try again.");
