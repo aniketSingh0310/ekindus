@@ -56,7 +56,8 @@ const Form2 = () => {
   const onSubmit = async (data: FormData) => {
     try {
       setLoading(true);
-
+  
+      // 1. Save the form data to Firestore
       await addDoc(collection(db, "leads"), {
         fullName: data.fullName,
         email: data.email,
@@ -65,38 +66,38 @@ const Form2 = () => {
         description: data.description,
         timestamp: new Date(),
       });
-
-      await fetch("/api/submit-form", {
+  
+      // 2. Send email via Brevo using the API
+      const emailResponse = await fetch("/api/submit-form", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
       });
-
-      // if (response.ok) {
-      //   // Reset the form fields
-      //   reset();
-      //   toast.success("Form submitted successfully!");
-      // } else {
-      //   toast.error("Error submitting the form. Please try again.");
-      // }
-
-      // Show success toast
+  
+      if (!emailResponse.ok) {
+        throw new Error("Failed to send email");
+      }
+  
+      // 3. Reset the form and show a success message
       reset();
-      toast.success("Form submitted successfully!");
+      toast.success("Form submitted and email sent successfully!");
       setSubmitted(true);
-      setLoading(false);
+      
+      // Clear the success message after 10 seconds
       setTimeout(() => setSubmitted(false), 10000);
+  
     } catch (error) {
-      console.error("Error adding document: ", error);
-
-      // Show error toast
+      console.error("Error submitting the form or sending email:", error);
+  
+      // Show an error toast
       toast.error("Error submitting the form. Please try again.");
-
+    } finally {
       setLoading(false);
     }
   };
+  
 
   return (
     <div className="p-5 md:p-[3rem]">

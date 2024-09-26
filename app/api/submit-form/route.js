@@ -7,16 +7,39 @@ const sendEmail = async (body) => {
     const response = await axios.post(
       'https://api.brevo.com/v3/smtp/email',
       {
-        sender: { name: 'Aniket', email: 'aniket@ekindus.com' }, // Replace with your email
-        to: [{ email: 'info@ekindus.com', name: 'Ek.indUs Admin' }], // Replace with the recipient's email
+        sender: { name: 'Ek.indUS Admin', email: 'aniket@ekindus.com' }, // Replace with your email
+        to: [
+          { email: 'info@ekindus.com', name: 'Ek.indUs Admin' }, // First recipient
+          { email: 'getintouch@notyouridea.com', name: 'Not Your Idea-Ek.indUS' }, // Second recipient
+        ],
         subject: 'New Form Submission',
         htmlContent: `
-          <h3>New Form Submission</h3>
-          <p><strong>Full Name:</strong> ${body.fullName}</p>
-          <p><strong>Email:</strong> ${body.email}</p>
-          <p><strong>Phone:</strong> ${body.phone}</p>
-          <p><strong>Country:</strong> ${body.country}</p>
-          <p><strong>Description:</strong> ${body.description || 'N/A'}</p>
+          <div style="font-family: Arial, sans-serif; color: #333; padding: 20px; line-height: 1.6;">
+            <h2 style="color: #4CAF50;">New Form Submission</h2>
+            <table style="width: 100%; border-collapse: collapse;">
+              <tr>
+                <td style="padding: 10px; font-weight: bold;">Full Name:</td>
+                <td style="padding: 10px;">${body.fullName}</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; font-weight: bold;">Email:</td>
+                <td style="padding: 10px;">${body.email}</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; font-weight: bold;">Phone:</td>
+                <td style="padding: 10px;">${body.phone}</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; font-weight: bold;">Country:</td>
+                <td style="padding: 10px;">${body.country}</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; font-weight: bold;">Description:</td>
+                <td style="padding: 10px;">${body.description || 'N/A'}</td>
+              </tr>
+            </table>
+            <p style="font-size: 12px; color: #888;">This email was sent from your website.</p>
+          </div>
         `,
         textContent: `You have a new form submission from ${body.fullName}.`,
       },
@@ -33,6 +56,7 @@ const sendEmail = async (body) => {
     console.error('Error sending email:', error.response?.data || error.message);
   }
 };
+
 
 export async function POST(req) {
   try {

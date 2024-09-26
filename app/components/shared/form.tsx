@@ -50,52 +50,7 @@ const Form = () => {
     resolver: zodResolver(formSchema),
   });
 
-  // const onSubmit = async (data: FormData) => {
-  //   try {
-  //     setLoading(true);
-
-  //     await addDoc(collection(db, "leads"), {
-  //       fullName: data.fullName,
-  //       email: data.email,
-  //       phone: data.phone,
-  //       country: data.country,
-  //       description: data.description,
-  //       timestamp: new Date(),
-  //     });
-
-  //      await fetch('/api/submit-form', {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //       body: JSON.stringify(data),
-  //     });
-
-  //     // if (response.ok) {
-  //     //   // Reset the form fields
-  //     //   reset();
-  //     //   toast.success("Form submitted successfully!");
-  //     // } else {
-  //     //   toast.error("Error submitting the form. Please try again.");
-  //     // }
-
-  //     reset();
-  //     // Show success toast
-  //     toast.success("Form submitted successfully!");
-  //     setSubmitted(true);
-
-  //     setLoading(false);
-  //     setTimeout(() => setSubmitted(false), 10000);
-  //   } catch (error) {
-  //     console.error("Error adding document: ", error);
-
-  //     // Show error toast
-  //     toast.error("Error submitting the form. Please try again.");
-
-  //     setLoading(false);
-  //   }
-  // };
-
+  
   const onSubmit = async (data: FormData) => {
     try {
       setLoading(true);
