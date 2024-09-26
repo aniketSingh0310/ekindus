@@ -8,10 +8,10 @@ const sendEmail = async (body) => {
       'https://api.brevo.com/v3/smtp/email',
       {
         sender: { name: 'Ek.indUS Admin', email: 'aniket@ekindus.com' }, // Replace with your email
-        to: [
-          { email: 'info@ekindus.com', name: 'Ek.indUs Admin' }, // First recipient
-          { email: 'getintouch@notyouridea.com', name: 'Not Your Idea-Ek.indUS' }, // Second recipient
-        ],
+        to:[{ email: 'info@ekindus.com', name: 'Ek.indUs Admin' }, 
+          { email: 'getintouch@notyouridea.com', name: 'Not Your Idea-Ek.indUS' },],
+
+         
         subject: 'New Form Submission',
         htmlContent: `
           <div style="font-family: Arial, sans-serif; color: #333; padding: 20px; line-height: 1.6;">
@@ -46,7 +46,7 @@ const sendEmail = async (body) => {
       {
         headers: {
           'Content-Type': 'application/json',
-          'api-key': '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'
+          'api-key': process.env.BREVO_API_KEY,
         },
       }
     );
