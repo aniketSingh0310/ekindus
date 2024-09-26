@@ -46,10 +46,11 @@ const sendEmail = async (body) => {
       {
         headers: {
           'Content-Type': 'application/json',
-          'api-key': process.env.BREVO_API_KEY, // Store API Key in environment variable
+          'api-key': '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'
         },
       }
     );
+    console.log('Brevo API Key:', process.env.BREVO_API_KEY);
 
     console.log('Email sent successfully:', response.data);
   } catch (error) {
