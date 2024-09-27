@@ -4,7 +4,7 @@ import Form from "../shared/form";
 import { Fade, Slide } from "react-awesome-reveal";
 const Hero = () => {
   return (
-    <div className="relative w-full h-max md:h-[80vh] overflow-hidden hidden md:block mt-[5.2rem]">
+    <div className="relative w-full h-max md:h-[90vh] overflow-hidden hidden md:block mt-[5.2rem]">
       {/* Background Video */}
       <video
         className="absolute top-0 left-0 w-full h-full object-cover"

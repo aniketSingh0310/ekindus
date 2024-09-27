@@ -1,7 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: ['flagcdn.com'], // Add flagcdn.com as an allowed domain
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'flagcdn.com',
+                port: '', 
+                pathname: '/**', 
+            },
+        ],
     },
 };
 

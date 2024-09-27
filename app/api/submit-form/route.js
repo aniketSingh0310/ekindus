@@ -8,10 +8,10 @@ const sendEmail = async (body) => {
       'https://api.brevo.com/v3/smtp/email',
       {
         sender: { name: 'Ek.indUS Admin', email: 'aniket@ekindus.com' }, // Replace with your email
-        to:[{ email: 'info@ekindus.com', name: 'Ek.indUs Admin' }, 
-          { email: 'getintouch@notyouridea.com', name: 'Not Your Idea-Ek.indUS' },],
-
-         
+        to: [
+          { email: 'info@ekindus.com', name: 'Ek.indUs Admin' }, 
+          { email: 'getintouch@notyouridea.com', name: 'Not Your Idea-Ek.indUS' },
+        ],
         subject: 'New Form Submission',
         htmlContent: `
           <div style="font-family: Arial, sans-serif; color: #333; padding: 20px; line-height: 1.6;">
@@ -50,7 +50,6 @@ const sendEmail = async (body) => {
         },
       }
     );
-    console.log('Brevo API Key:', process.env.BREVO_API_KEY);
 
     console.log('Email sent successfully:', response.data);
   } catch (error) {
@@ -58,11 +57,31 @@ const sendEmail = async (body) => {
   }
 };
 
+// Function to verify reCAPTCHA token
+const verifyRecaptcha = async (token) => {
+  const secretKey = process.env.RECAPTCHA_SECRET_KEY; 
+  const response = await axios.post(`https://www.google.com/recaptcha/api/siteverify`, null, {
+    params: {
+      secret: secretKey,
+      response: token,
+    },
+  });
+  return response.data.success;
+};
 
 export async function POST(req) {
   console.log("Received request at /api/submit-form");
   try {
     const body = await req.json();
+
+    // Verify the reCAPTCHA token
+    const isHuman = await verifyRecaptcha(body.recaptcha);
+    if (!isHuman) {
+      return new Response(JSON.stringify({ message: 'CAPTCHA verification failed.' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
 
     // Store the form data in a JSON DB
     const db = new JsonDB(new Config('formDatabase', true, false, '/'));
@@ -74,20 +93,18 @@ export async function POST(req) {
     // Return a success response
     return new Response(JSON.stringify({ message: 'Form submitted and email sent successfully' }), {
       status: 200,
-      // headers: { 'Content-Type': 'application/json' },
       headers: {
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*', // Allow requests from all origins
-      'Access-Control-Allow-Methods': 'POST, OPTIONS', // Allowed methods
-    },
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*', // Allow requests from all origins
+        'Access-Control-Allow-Methods': 'POST, OPTIONS', // Allowed methods
+      },
     });
   } catch (error) {
     console.error("Error in POST /api/submit-form:", error);
     console.error('Error processing form submission:', error);
     return new Response(JSON.stringify({ message: 'Failed to submit form' }), {
       status: 500,
-      headers: { 'Content-Type': 'application/json' }, 
-      
+      headers: { 'Content-Type': 'application/json' },
     });
   }
 }

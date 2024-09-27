@@ -16,12 +16,13 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import countries from "@/data/countries";
-import { toast } from "react-hot-toast"; // Import react-hot-toast
+import { toast } from "react-hot-toast";
 import { PhoneInput } from "react-international-phone";
 import "react-international-phone/style.css";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 import SubmitButton from "./Button";
+import ReCAPTCHA from "react-google-recaptcha";
 
 // Define Zod schema for validation
 const formSchema = z.object({
@@ -30,6 +31,7 @@ const formSchema = z.object({
   phone: z.string().min(10, { message: "Phone number should have at least 10 digits" }),
   country: z.string().min(1, { message: "Please select a country" }),
   description: z.string().optional(),
+  recaptcha: z.string().min(1, { message: "Please complete the CAPTCHA" }), // Add recaptcha validation
 });
 
 // Infer the TypeScript type from the Zod schema
@@ -39,6 +41,7 @@ const Form = () => {
   const [loading, setLoading] = useState(false);
   const [phone, setPhone] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [recaptchaToken, setRecaptchaToken] = useState<string>("");
 
   const {
     register,
@@ -50,12 +53,11 @@ const Form = () => {
     resolver: zodResolver(formSchema),
   });
 
-  
   const onSubmit = async (data: FormData) => {
     try {
       setLoading(true);
-  
-      // 1. Save the form data to Firestore
+
+      // Save the form data to Firestore
       await addDoc(collection(db, "leads"), {
         fullName: data.fullName,
         email: data.email,
@@ -64,40 +66,34 @@ const Form = () => {
         description: data.description,
         timestamp: new Date(),
       });
-  
-      // 2. Send email via Brevo using the API
+
+      // Send email via your API with the reCAPTCHA token
       const emailResponse = await fetch("/api/submit-form", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, recaptcha: recaptchaToken }),
       });
-  
+
       if (!emailResponse.ok) {
         throw new Error("Failed to send email");
       }
-  
-      // 3. Reset the form and show a success message
+
       reset();
       toast.success("Form submitted and email sent successfully!");
       setSubmitted(true);
-      
-      // Clear the success message after 10 seconds
       setTimeout(() => setSubmitted(false), 10000);
-  
     } catch (error) {
       console.error("Error submitting the form or sending email:", error);
-  
-      // Show an error toast
       toast.error("Error submitting the form. Please try again.");
     } finally {
       setLoading(false);
     }
   };
-  
+
   return (
-    <div className="p-5 bg-white/80 opacity-90 backdrop-blur-sm rounded-md ">
+    <div className="p-5 bg-white/80 opacity-90 backdrop-blur-sm rounded-md py-5">
       <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
         {/* Full Name */}
         <div className="w-full">
@@ -157,9 +153,9 @@ const Form = () => {
             forceDialCode={true}
             onChange={(phone) => {
               setPhone(phone);
-              setValue("phone", phone); // Update the phone value in react-hook-form
+              setValue("phone", phone);
             }}
-            inputClassName={`w-full ${errors.phone ? "border-red-500" : ""}`} // Add error styles if validation fails
+            inputClassName={`w-full ${errors.phone ? "border-red-500" : ""}`}
           />
           
           {errors.phone && (
@@ -217,14 +213,30 @@ const Form = () => {
           )}
         </div>
 
+        {/* reCAPTCHA */}
+        <div className="w-full">
+          <ReCAPTCHA
+            sitekey="6LeedFAqAAAAAIO_20OeGBsv0X5_IqivMjfY-xd5" 
+            onChange={(token) => {
+              if (token) {
+                setRecaptchaToken(token); 
+                setValue("recaptcha", token); 
+              }
+            }}
+          />
+          {errors.recaptcha && (
+            <p className="text-red-500 text-sm">{errors.recaptcha.message}</p>
+          )}
+        </div>
+
         {/* Submit Button */}
         <div className="flex gap-4 ">
           <SubmitButton>{loading ? "Submitting..." : "Submit Details"}</SubmitButton>
           {submitted && (
-        <div className="p-2 text-green-700 bg-green-100 rounded-md text-sm">
-          Form submitted successfully!
-        </div>
-      )}
+            <div className="p-2 text-green-700 bg-green-100 rounded-md text-sm">
+              Form submitted successfully!
+            </div>
+          )}
         </div>
       </form>
     </div>
