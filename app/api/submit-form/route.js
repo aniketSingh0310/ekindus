@@ -7,7 +7,7 @@ const sendEmail = async (body) => {
     const response = await axios.post(
       'https://api.brevo.com/v3/smtp/email',
       {
-        sender: { name: 'Ek.indUS Admin', email: 'aniket@ekindus.com' }, // Replace with your email
+        sender: { name: 'Ek.indUS Admin', email: 'admin@ekindus.com' }, // Replace with your email
         to: [
           { email: 'info@ekindus.com', name: 'Ek.indUs Admin' }, 
           { email: 'getintouch@notyouridea.com', name: 'Not Your Idea-Ek.indUS' },
