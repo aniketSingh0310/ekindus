@@ -70,7 +70,24 @@ const verifyRecaptcha = async (token) => {
 };
 
 export async function POST(req) {
+  // Set CORS headers
+  const headers = {
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': 'https://your-custom-domain.com', // Replace with your custom domain
+    'Access-Control-Allow-Methods': 'POST, OPTIONS', // Allowed methods
+    'Access-Control-Allow-Headers': 'Content-Type, Authorization', // Allowed headers
+  };
+
+  // Handle OPTIONS preflight request
+  if (req.method === 'OPTIONS') {
+    return new Response(null, {
+      status: 204,
+      headers,
+    });
+  }
+
   console.log("Received request at /api/submit-form");
+
   try {
     const body = await req.json();
 
@@ -79,7 +96,7 @@ export async function POST(req) {
     if (!isHuman) {
       return new Response(JSON.stringify({ message: 'CAPTCHA verification failed.' }), {
         status: 400,
-        headers: { 'Content-Type': 'application/json' },
+        headers,
       });
     }
 
@@ -93,18 +110,14 @@ export async function POST(req) {
     // Return a success response
     return new Response(JSON.stringify({ message: 'Form submitted and email sent successfully' }), {
       status: 200,
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*', // Allow requests from all origins
-        'Access-Control-Allow-Methods': 'POST, OPTIONS', // Allowed methods
-      },
+      headers,
     });
   } catch (error) {
     console.error("Error in POST /api/submit-form:", error);
-    console.error('Error processing form submission:', error);
     return new Response(JSON.stringify({ message: 'Failed to submit form' }), {
       status: 500,
-      headers: { 'Content-Type': 'application/json' },
+      headers,
     });
   }
 }
+

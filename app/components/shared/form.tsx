@@ -56,7 +56,7 @@ const Form = () => {
   const onSubmit = async (data: FormData) => {
     try {
       setLoading(true);
-
+  
       // Save the form data to Firestore
       await addDoc(collection(db, "leads"), {
         fullName: data.fullName,
@@ -66,7 +66,11 @@ const Form = () => {
         description: data.description,
         timestamp: new Date(),
       });
-
+  
+      // Set submitted to true after Firestore submission
+      setSubmitted(true);
+      reset();
+      setTimeout(() => setSubmitted(false), 10000);
       // Send email via your API with the reCAPTCHA token
       const emailResponse = await fetch("/api/submit-form", {
         method: "POST",
@@ -75,15 +79,13 @@ const Form = () => {
         },
         body: JSON.stringify({ ...data, recaptcha: recaptchaToken }),
       });
-
+  
       if (!emailResponse.ok) {
         throw new Error("Failed to send email");
       }
-
-      reset();
+  
+      
       toast.success("Form submitted and email sent successfully!");
-      setSubmitted(true);
-      setTimeout(() => setSubmitted(false), 10000);
     } catch (error) {
       console.error("Error submitting the form or sending email:", error);
       toast.error("Error submitting the form. Please try again.");
@@ -91,6 +93,7 @@ const Form = () => {
       setLoading(false);
     }
   };
+  
 
   return (
     <div className="p-5 bg-white/80 opacity-90 backdrop-blur-sm rounded-md py-5">
