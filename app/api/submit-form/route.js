@@ -1,5 +1,6 @@
 import { JsonDB, Config } from 'node-json-db';
 import axios from 'axios';
+import { NextResponse } from 'next/server';
 
 // Function to send email using Brevo's transactional email API
 const sendEmail = async (body) => {
@@ -73,14 +74,14 @@ export async function POST(req) {
   // Set CORS headers
   const headers = {
     'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': 'https://your-custom-domain.com', // Replace with your custom domain
+    'Access-Control-Allow-Origin': 'https://www.ekindus.com/', // Replace with your custom domain
     'Access-Control-Allow-Methods': 'POST, OPTIONS', // Allowed methods
     'Access-Control-Allow-Headers': 'Content-Type, Authorization', // Allowed headers
   };
 
   // Handle OPTIONS preflight request
   if (req.method === 'OPTIONS') {
-    return new Response(null, {
+    return new NextResponse(null, {
       status: 204,
       headers,
     });
@@ -94,7 +95,7 @@ export async function POST(req) {
     // Verify the reCAPTCHA token
     const isHuman = await verifyRecaptcha(body.recaptcha);
     if (!isHuman) {
-      return new Response(JSON.stringify({ message: 'CAPTCHA verification failed.' }), {
+      return new NextResponse(JSON.stringify({ message: 'CAPTCHA verification failed.' }), {
         status: 400,
         headers,
       });
@@ -108,16 +109,15 @@ export async function POST(req) {
     await sendEmail(body);
 
     // Return a success response
-    return new Response(JSON.stringify({ message: 'Form submitted and email sent successfully' }), {
+    return new NextResponse(JSON.stringify({ message: 'Form submitted and email sent successfully' }), {
       status: 200,
       headers,
     });
   } catch (error) {
     console.error("Error in POST /api/submit-form:", error);
-    return new Response(JSON.stringify({ message: 'Failed to submit form' }), {
+    return new NextResponse(JSON.stringify({ message: 'Failed to submit form' }), {
       status: 500,
       headers,
     });
   }
 }
-
