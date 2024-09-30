@@ -1,4 +1,3 @@
-import { JsonDB, Config } from 'node-json-db';
 import axios from 'axios';
 import { NextResponse } from 'next/server';
 
@@ -74,7 +73,7 @@ export async function POST(req) {
   // Set CORS headers
   const headers = {
     'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': 'https://www.ekindus.com/', // Replace with your custom domain
+    'Access-Control-Allow-Origin': 'https://www.ekindus.com', // Replace with your custom domain
     'Access-Control-Allow-Methods': 'POST, OPTIONS', // Allowed methods
     'Access-Control-Allow-Headers': 'Content-Type, Authorization', // Allowed headers
   };
@@ -100,10 +99,6 @@ export async function POST(req) {
         headers,
       });
     }
-
-    // Store the form data in a JSON DB
-    const db = new JsonDB(new Config('formDatabase', true, false, '/'));
-    db.push('/forms[]', body, true);
 
     // Send email using Brevo
     await sendEmail(body);
