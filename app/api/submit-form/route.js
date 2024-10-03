@@ -70,15 +70,15 @@ const verifyRecaptcha = async (token) => {
 };
 
 export async function POST(req) {
-  // Set CORS headers
+ 
   const headers = {
     'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': 'https://www.ekindus.com', // Replace with your custom domain
-    'Access-Control-Allow-Methods': 'POST, OPTIONS', // Allowed methods
-    'Access-Control-Allow-Headers': 'Content-Type, Authorization', // Allowed headers
+    'Access-Control-Allow-Origin': 'https://www.ekindus.com', 
+    'Access-Control-Allow-Methods': 'POST, OPTIONS', 
+    'Access-Control-Allow-Headers': 'Content-Type, Authorization', 
   };
 
-  // Handle OPTIONS preflight request
+  
   if (req.method === 'OPTIONS') {
     return new NextResponse(null, {
       status: 204,

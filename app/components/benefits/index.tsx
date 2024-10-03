@@ -42,16 +42,16 @@ const Benefits = () => {
             {/* Image container */}
             <motion.div
               className="relative w-full h-[300px] overflow-hidden"
-              whileHover="hover" // Apply the hover state when the container is hovered
+              whileHover="hover" 
             >
               {/* Base image (image1) that slides down on hover */}
               <motion.div
                 className="absolute top-0 left-0 w-full h-full"
-                initial={{ y: 0 }} // Fully visible initially
+                initial={{ y: 0 }} 
                 variants={{
-                  hover: { y: "30%", opacity: 1 }, // Slide down and fade out on hover
+                  hover: { y: "30%", opacity: 1 }, 
                 }}
-                transition={{ duration: 0.5 }} // Smooth transition
+                transition={{ duration: 0.5 }} 
               >
                 <Image
                   src={benefit.image}
@@ -66,11 +66,11 @@ const Benefits = () => {
               {/* Hover image (image2) on top */}
               <motion.div
                 className="absolute top-0 left-0 w-full h-full"
-                initial={{ opacity: 1, scale: 1 }}  // Start fully visible
+                initial={{ opacity: 1, scale: 1 }}  
                 variants={{
-                  hover: { opacity: 1, scale: 1.07 },  // Scale up slightly on hover
+                  hover: { opacity: 1, scale: 1.07 }, 
                 }}
-                transition={{ duration: 0.8, }}  // Smooth transition
+                transition={{ duration: 0.8, }} 
               >
                 <Image
                   src={benefit.image2}
