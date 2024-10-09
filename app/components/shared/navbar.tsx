@@ -55,7 +55,7 @@ const Navbar = () => {
               <SubmitButton>Get In Touch</SubmitButton>
             </Link>
             <Link
-             href={`https://wa.me/15125651075?text=${encodeURIComponent(
+             href={`https://wa.me/+15123831111?text=${encodeURIComponent(
               "Hello, I would like to know more about your services!"
             )}`}
               target="_blank"
